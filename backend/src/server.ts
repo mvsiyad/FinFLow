@@ -3,6 +3,9 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.routes';
+import transactionRoutes from './routes/transaction.routes';
+import budgetRoutes from './routes/budget.routes';
+import summaryRoutes from './routes/summary.routes';
 
 // Load environment variables
 dotenv.config();
@@ -32,6 +35,9 @@ app.get('/api/health', (_req: Request, res: Response) => {
 
 // API Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/transactions', transactionRoutes);
+app.use('/api/budgets', budgetRoutes);
+app.use('/api/summary', summaryRoutes);
 
 // 404 Handler
 app.use((_req: Request, res: Response) => {

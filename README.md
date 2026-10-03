@@ -77,8 +77,9 @@ The backend API will run at `http://localhost:5000`.
 
 ---
 
-## 🔒 API Endpoints (Phase 1)
+## 🔒 API Endpoints
 
+### Authentication (Phase 1)
 | Method | Endpoint | Description | Protected |
 | :--- | :--- | :--- | :---: |
 | `GET` | `/api/health` | Server health status check | No |
@@ -87,11 +88,33 @@ The backend API will run at `http://localhost:5000`.
 | `POST` | `/api/auth/logout` | Clear auth cookie | No |
 | `GET` | `/api/auth/me` | Fetch authenticated user profile | **Yes (JWT)** |
 
+### Transactions (Phase 2)
+| Method | Endpoint | Description | Protected |
+| :--- | :--- | :--- | :---: |
+| `GET` | `/api/transactions` | List user transactions (supports filters: type, category, startDate, endDate, pagination) | **Yes (JWT)** |
+| `GET` | `/api/transactions/:id` | Get transaction details by ID | **Yes (JWT)** |
+| `POST` | `/api/transactions` | Create new income or expense transaction | **Yes (JWT)** |
+| `PUT` | `/api/transactions/:id` | Update transaction record | **Yes (JWT)** |
+| `DELETE` | `/api/transactions/:id` | Delete transaction record | **Yes (JWT)** |
+
+### Budgets & Alerts (Phase 2)
+| Method | Endpoint | Description | Protected |
+| :--- | :--- | :--- | :---: |
+| `GET` | `/api/budgets` | Fetch monthly budgets with computed spending & alert levels (`green`, `amber`, `red`) | **Yes (JWT)** |
+| `POST` | `/api/budgets` | Upsert monthly spending limit for category | **Yes (JWT)** |
+| `DELETE` | `/api/budgets/:id` | Delete monthly category budget cap | **Yes (JWT)** |
+
+### Summary & Analytics (Phase 2)
+| Method | Endpoint | Description | Protected |
+| :--- | :--- | :--- | :---: |
+| `GET` | `/api/summary` | Fetch net balance, total income/expenses, savings rate, and category breakdown | **Yes (JWT)** |
+
 ---
 
 ## 🗺️ Roadmap
 - [x] **Phase 1:** Backend Setup & Authentication (Express, TypeScript, Prisma, Neon Postgres, JWT)
-- [ ] **Phase 2:** Core Transactions & Budget API (CRUD, categorization, date filtering, summary)
+- [x] **Phase 2:** Core Transactions & Budget API (CRUD, categorization, date filtering, summary)
 - [ ] **Phase 3:** Frontend Layout & Dashboard UI (Next.js 14, Tailwind CSS, Sidebar, Modals)
 - [ ] **Phase 4:** Interactive Charts & Budget Alerts (Recharts trend lines, doughnut charts, progress alerts)
 - [ ] **Phase 5:** Testing, Polish & Deployment (Jest tests, Render/Railway, Vercel)
+
