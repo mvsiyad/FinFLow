@@ -4,6 +4,7 @@ import React from 'react';
 import { Target, Plus, ShieldAlert, CheckCircle2, AlertTriangle, Trash2 } from 'lucide-react';
 import { useFinFlowStore } from '@/lib/store';
 import { formatCurrency } from '@/lib/utils';
+import { BudgetAlertBanner } from '@/components/BudgetAlertBanner';
 
 export default function BudgetsPage() {
   const { budgets, deleteBudget, setAddBudgetOpen } = useFinFlowStore();
@@ -31,6 +32,9 @@ export default function BudgetsPage() {
           <span>Set Category Budget</span>
         </button>
       </div>
+
+      {/* Dynamic Alert Banner */}
+      <BudgetAlertBanner />
 
       {/* Overview Stat Banner */}
       <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 sm:p-6 backdrop-blur-md">
@@ -93,10 +97,10 @@ export default function BudgetsPage() {
           </div>
         ) : (
           budgets.map((b) => {
-            const isExceeded = b.percentageUsed >= 100;
-            const isWarning = b.percentageUsed >= 70 && !isExceeded;
+            const isCritical = b.percentageUsed >= 90;
+            const isWarning = b.percentageUsed >= 70 && !isCritical;
 
-            const statusIcon = isExceeded ? (
+            const statusIcon = isCritical ? (
               <ShieldAlert className="w-4 h-4 text-rose-400" />
             ) : isWarning ? (
               <AlertTriangle className="w-4 h-4 text-amber-400" />
@@ -104,19 +108,19 @@ export default function BudgetsPage() {
               <CheckCircle2 className="w-4 h-4 text-emerald-400" />
             );
 
-            const statusText = isExceeded
-              ? 'Exceeded'
+            const statusText = isCritical
+              ? 'Critical (>90%)'
               : isWarning
               ? 'Near Cap (>70%)'
               : 'On Track';
 
-            const statusColor = isExceeded
+            const statusColor = isCritical
               ? 'bg-rose-500/10 text-rose-400 border-rose-500/20'
               : isWarning
               ? 'bg-amber-400/10 text-amber-300 border-amber-400/20'
               : 'bg-emerald-400/10 text-emerald-400 border-emerald-400/20';
 
-            const progressBarColor = isExceeded
+            const progressBarColor = isCritical
               ? 'bg-rose-500'
               : isWarning
               ? 'bg-amber-400'

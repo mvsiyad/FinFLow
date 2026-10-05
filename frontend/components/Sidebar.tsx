@@ -32,7 +32,7 @@ const navItems = [
     icon: Wallet,
   },
   {
-    name: 'Analytics (Phase 4)',
+    name: 'Analytics',
     href: '/analytics',
     icon: PieChart,
   },

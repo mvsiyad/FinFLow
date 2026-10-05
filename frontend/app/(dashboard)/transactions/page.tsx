@@ -10,9 +10,11 @@ import {
   Trash2,
   Calendar,
   Layers,
+  Download,
 } from 'lucide-react';
 import { useFinFlowStore } from '@/lib/store';
 import { formatCurrency, formatDate, TRANSACTION_CATEGORIES } from '@/lib/utils';
+import { exportTransactionsToCSV } from '@/lib/csvExport';
 
 export default function TransactionsPage() {
   const { transactions, deleteTransaction, setAddTransactionOpen } = useFinFlowStore();
@@ -49,13 +51,24 @@ export default function TransactionsPage() {
           </p>
         </div>
 
-        <button
-          onClick={() => setAddTransactionOpen(true)}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-950 bg-emerald-400 hover:bg-emerald-300 transition-all shadow-md shadow-emerald-500/20 active:scale-95 cursor-pointer self-start sm:self-auto"
-        >
-          <Plus className="w-4 h-4 stroke-[2.5]" />
-          <span>New Transaction</span>
-        </button>
+        <div className="flex items-center gap-2.5 self-start sm:self-auto">
+          <button
+            onClick={() => exportTransactionsToCSV(filteredTransactions, 'finflow-transactions')}
+            className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-200 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition-all shadow-md active:scale-95 cursor-pointer"
+            title="Export filtered records to CSV"
+          >
+            <Download className="w-4 h-4 text-emerald-400" />
+            <span>Export CSV</span>
+          </button>
+
+          <button
+            onClick={() => setAddTransactionOpen(true)}
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-950 bg-emerald-400 hover:bg-emerald-300 transition-all shadow-md shadow-emerald-500/20 active:scale-95 cursor-pointer"
+          >
+            <Plus className="w-4 h-4 stroke-[2.5]" />
+            <span>New Transaction</span>
+          </button>
+        </div>
       </div>
 
       {/* Filter and Search Bar */}

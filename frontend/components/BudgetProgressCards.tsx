@@ -54,16 +54,16 @@ export const BudgetProgressCards: React.FC = () => {
           </div>
         ) : (
           budgets.slice(0, 4).map((b) => {
-            const isExceeded = b.percentageUsed >= 100;
-            const isWarning = b.percentageUsed >= 70 && !isExceeded;
+            const isCritical = b.percentageUsed >= 90;
+            const isWarning = b.percentageUsed >= 70 && !isCritical;
 
-            const progressColor = isExceeded
+            const progressColor = isCritical
               ? 'bg-rose-500'
               : isWarning
               ? 'bg-amber-400'
               : 'bg-emerald-400';
 
-            const badgeColor = isExceeded
+            const badgeColor = isCritical
               ? 'bg-rose-500/10 text-rose-400 border-rose-500/20'
               : isWarning
               ? 'bg-amber-400/10 text-amber-300 border-amber-400/20'
