@@ -79,8 +79,8 @@ export const BudgetProgressCards: React.FC = () => {
                     >
                       {b.percentageUsed.toFixed(0)}% used
                     </span>
-                    {isExceeded && (
-                      <span title="Budget exceeded">
+                    {isCritical && (
+                      <span title="Budget critical threshold reached">
                         <ShieldAlert className="w-3.5 h-3.5 text-rose-400" />
                       </span>
                     )}

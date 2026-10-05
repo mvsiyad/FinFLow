@@ -135,7 +135,7 @@ The web dashboard will be available at `http://localhost:3000`.
 - [x] **Phase 1:** Backend Setup & Authentication (Express, TypeScript, Prisma, Neon Postgres, JWT)
 - [x] **Phase 2:** Core Transactions & Budget API (CRUD, categorization, date filtering, summary)
 - [x] **Phase 3:** Frontend Layout & Dashboard UI (Next.js 14, Tailwind CSS, Sidebar, Modals)
-- [ ] **Phase 4:** Interactive Charts & Budget Alerts (Recharts trend lines, doughnut charts, progress alerts)
+- [x] **Phase 4:** Interactive Charts & Budget Alerts (Recharts trend lines, doughnut charts, dynamic budget alerts, CSV export)
 - [ ] **Phase 5:** Testing, Polish & Deployment (Jest tests, Render/Railway, Vercel)
 
 
