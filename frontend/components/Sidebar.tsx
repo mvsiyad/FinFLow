@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import {
   LayoutDashboard,
   ArrowLeftRight,
@@ -11,6 +11,7 @@ import {
   Settings,
   PlusCircle,
   TrendingUp,
+  LogOut,
 } from 'lucide-react';
 import { useFinFlowStore } from '@/lib/store';
 import { cn } from '@/lib/utils';
@@ -50,7 +51,14 @@ interface SidebarProps {
 
 export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const pathname = usePathname();
-  const { setAddTransactionOpen, user } = useFinFlowStore();
+  const router = useRouter();
+  const { setAddTransactionOpen, user, logout } = useFinFlowStore();
+
+  const handleLogout = async () => {
+    await logout();
+    if (onClose) onClose();
+    router.push('/login');
+  };
 
   return (
     <>
@@ -139,20 +147,33 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         </nav>
 
         {/* User Footer Profile */}
-        <div className="p-4 border-t border-slate-800/60 bg-slate-900/40">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-emerald-500 to-cyan-500 flex items-center justify-center font-bold text-slate-950 text-xs shadow-md">
+        <div className="p-3.5 border-t border-slate-800/60 bg-slate-900/40 flex items-center justify-between gap-2">
+          <Link
+            href="/settings"
+            onClick={onClose}
+            className="flex items-center gap-2.5 min-w-0 flex-1 p-1 rounded-xl hover:bg-slate-800/50 transition-colors group"
+            title="Open Settings"
+          >
+            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-emerald-500 to-cyan-500 flex items-center justify-center font-bold text-slate-950 text-xs shadow-md shrink-0">
               {user?.name ? user.name.slice(0, 2).toUpperCase() : 'FF'}
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-semibold text-slate-200 truncate">
+              <p className="text-xs font-semibold text-slate-200 truncate group-hover:text-emerald-400 transition-colors">
                 {user?.name || 'Alex Rivera'}
               </p>
-              <p className="text-[11px] text-slate-400 truncate">
+              <p className="text-[10px] text-slate-400 truncate">
                 {user?.email || 'demo@finflow.dev'}
               </p>
             </div>
-          </div>
+          </Link>
+
+          <button
+            onClick={handleLogout}
+            title="Sign out"
+            className="p-2 rounded-xl text-slate-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors cursor-pointer shrink-0"
+          >
+            <LogOut className="w-4 h-4" />
+          </button>
         </div>
       </aside>
     </>

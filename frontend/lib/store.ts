@@ -140,6 +140,10 @@ interface FinFlowState {
 
   // Actions
   setUser: (user: User | null) => void;
+  login: (credentials: { email: string; password: string }) => Promise<{ success: boolean; message?: string }>;
+  register: (data: { name: string; email: string; password: string }) => Promise<{ success: boolean; message?: string }>;
+  logout: () => Promise<void>;
+  loginWithDemo: () => void;
   setSelectedMonthYear: (monthYear: string) => void;
   setAddTransactionOpen: (isOpen: boolean) => void;
   setAddBudgetOpen: (isOpen: boolean) => void;
@@ -201,6 +205,78 @@ export const useFinFlowStore = create<FinFlowState>((set, get) => ({
   isAddBudgetOpen: false,
 
   setUser: (user) => set({ user, isAuthenticated: !!user }),
+
+  login: async (credentials) => {
+    try {
+      set({ isLoading: true });
+      const res = await authService.login(credentials);
+      const user = res.user;
+      set({ user, isAuthenticated: true });
+      await Promise.all([
+        get().fetchSummary(get().selectedMonthYear),
+        get().fetchTransactions(),
+        get().fetchBudgets(get().selectedMonthYear),
+      ]);
+      return { success: true };
+    } catch (error: any) {
+      return {
+        success: false,
+        message: error?.message || 'Login failed. Please check your credentials.',
+      };
+    } finally {
+      set({ isLoading: false });
+    }
+  },
+
+  register: async (data) => {
+    try {
+      set({ isLoading: true });
+      const res = await authService.register(data);
+      const user = res.user;
+      set({ user, isAuthenticated: true });
+      await Promise.all([
+        get().fetchSummary(get().selectedMonthYear),
+        get().fetchTransactions(),
+        get().fetchBudgets(get().selectedMonthYear),
+      ]);
+      return { success: true };
+    } catch (error: any) {
+      return {
+        success: false,
+        message: error?.message || 'Registration failed. Please try again.',
+      };
+    } finally {
+      set({ isLoading: false });
+    }
+  },
+
+  logout: async () => {
+    try {
+      await authService.logout();
+    } catch {
+      // ignore
+    } finally {
+      set({
+        user: null,
+        isAuthenticated: false,
+      });
+    }
+  },
+
+  loginWithDemo: () => {
+    set({
+      user: {
+        id: 'demo-user',
+        name: 'Alex Rivera',
+        email: 'alex.rivera@finflow.dev',
+        createdAt: new Date().toISOString(),
+      },
+      isAuthenticated: true,
+      transactions: SAMPLE_TRANSACTIONS,
+      budgets: SAMPLE_BUDGETS,
+    });
+  },
+
   setSelectedMonthYear: (monthYear) => {
     set({ selectedMonthYear: monthYear });
     get().fetchSummary(monthYear);

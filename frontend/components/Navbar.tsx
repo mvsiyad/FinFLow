@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Menu, Calendar, Plus, WalletCards } from 'lucide-react';
+import Link from 'next/link';
+import { Menu, Calendar, Plus, WalletCards, Settings } from 'lucide-react';
 import { useFinFlowStore } from '@/lib/store';
 
 interface NavbarProps {
@@ -88,6 +89,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
           <span className="hidden sm:inline">Transaction</span>
           <span className="sm:hidden">Add</span>
         </button>
+
+        {/* Quick Settings Link */}
+        <Link
+          href="/settings"
+          title="Account Settings & Profile"
+          className="p-2 text-slate-400 hover:text-slate-100 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 rounded-xl transition-all cursor-pointer"
+        >
+          <Settings className="w-4 h-4" />
+        </Link>
       </div>
     </header>
   );
