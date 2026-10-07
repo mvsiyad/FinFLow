@@ -6,6 +6,7 @@ import { SummaryCards } from '@/components/SummaryCards';
 import { RecentTransactions } from '@/components/RecentTransactions';
 import { BudgetProgressCards } from '@/components/BudgetProgressCards';
 import { BudgetAlertBanner } from '@/components/BudgetAlertBanner';
+import { SmartInsightsCard } from '@/components/SmartInsightsCard';
 import { ExpenseTrendChart } from '@/components/Charts/ExpenseTrendChart';
 import { CategoryDoughnutChart } from '@/components/Charts/CategoryDoughnutChart';
 import { useFinFlowStore } from '@/lib/store';
@@ -53,6 +54,9 @@ export default function DashboardPage() {
 
       {/* Top 4 KPI Metrics */}
       <SummaryCards />
+
+      {/* FinFlow AI Spending Insights & Intelligence */}
+      <SmartInsightsCard />
 
       {/* Interactive Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

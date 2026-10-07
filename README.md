@@ -104,10 +104,11 @@ The backend API will run at `http://localhost:5000`.
 | `POST` | `/api/budgets` | Upsert monthly spending limit for category | **Yes (JWT)** |
 | `DELETE` | `/api/budgets/:id` | Delete monthly category budget cap | **Yes (JWT)** |
 
-### Summary & Analytics (Phase 2)
+### Summary & Analytics (Phase 2 & Extended Intelligence)
 | Method | Endpoint | Description | Protected |
 | :--- | :--- | :--- | :---: |
 | `GET` | `/api/summary` | Fetch net balance, total income/expenses, savings rate, and category breakdown | **Yes (JWT)** |
+| `GET` | `/api/insights` | FinFlow AI Financial Health Score (0–100), daily burn rate, and predictive smart insights | **Yes (JWT)** |
 
 ---
 

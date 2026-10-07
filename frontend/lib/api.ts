@@ -180,3 +180,46 @@ export const summaryService = {
     return res.data.data;
   },
 };
+
+export interface SmartInsight {
+  id: string;
+  type: 'POSITIVE' | 'WARNING' | 'ALERT' | 'TIP';
+  title: string;
+  description: string;
+  impact?: string;
+  category?: string;
+}
+
+export interface HealthScore {
+  score: number;
+  grade: string;
+  status: string;
+  summary: string;
+}
+
+export interface BurnRateMetrics {
+  dailyAverage: number;
+  daysElapsed: number;
+  daysRemaining: number;
+  projectedExpense: number;
+  projectedSurplus: number;
+}
+
+export interface InsightsData {
+  period: {
+    monthYear: string;
+    daysElapsed: number;
+    daysRemaining: number;
+    totalDaysInMonth: number;
+  };
+  healthScore: HealthScore;
+  burnRate: BurnRateMetrics;
+  insights: SmartInsight[];
+}
+
+export const insightsService = {
+  get: async (monthYear?: string): Promise<InsightsData> => {
+    const res = await api.get('/insights', { params: { monthYear } });
+    return res.data.data;
+  },
+};

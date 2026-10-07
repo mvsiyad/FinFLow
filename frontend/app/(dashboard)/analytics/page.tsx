@@ -15,6 +15,7 @@ import { CategoryDoughnutChart } from '@/components/Charts/CategoryDoughnutChart
 import { ExpenseTrendChart } from '@/components/Charts/ExpenseTrendChart';
 import { CashFlowBarChart } from '@/components/Charts/CashFlowBarChart';
 import { BudgetAlertBanner } from '@/components/BudgetAlertBanner';
+import { SmartInsightsCard } from '@/components/SmartInsightsCard';
 
 export default function AnalyticsPage() {
   const { summary, transactions, selectedMonthYear } = useFinFlowStore();
@@ -129,6 +130,9 @@ export default function AnalyticsPage() {
           </span>
         </div>
       </div>
+
+      {/* FinFlow AI Intelligence & Health Score */}
+      <SmartInsightsCard />
 
       {/* Main Trend Line / Area Chart */}
       <ExpenseTrendChart

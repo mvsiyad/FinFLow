@@ -4,10 +4,12 @@ import {
   Transaction,
   Budget,
   SummaryData,
+  InsightsData,
   authService,
   transactionService,
   budgetService,
   summaryService,
+  insightsService,
 } from './api';
 
 // Realistic sample data for instant showcase and offline resilience
@@ -127,6 +129,61 @@ const SAMPLE_BUDGETS: Budget[] = [
   },
 ];
 
+const SAMPLE_INSIGHTS: InsightsData = {
+  period: {
+    monthYear: new Date().toISOString().slice(0, 7),
+    daysElapsed: 7,
+    daysRemaining: 24,
+    totalDaysInMonth: 31,
+  },
+  healthScore: {
+    score: 86,
+    grade: 'A',
+    status: 'Healthy & Prospering',
+    summary: 'Strong net cash flow with healthy 68.1% savings velocity.',
+  },
+  burnRate: {
+    dailyAverage: 79.3,
+    daysElapsed: 7,
+    daysRemaining: 24,
+    projectedExpense: 2459.5,
+    projectedSurplus: 5240.5,
+  },
+  insights: [
+    {
+      id: 'ins-1',
+      type: 'ALERT',
+      category: 'Housing & Rent',
+      title: 'Housing & Rent at 97.5% Cap',
+      description: 'You have consumed $1,950 of your $2,000 monthly limit. Only $50 remains for the rest of this period.',
+      impact: 'Critical Attention',
+    },
+    {
+      id: 'ins-2',
+      type: 'POSITIVE',
+      title: 'Top 10% Savings Rate (68.1%)',
+      description: 'Your savings rate of 68.1% significantly exceeds standard personal finance recommendations (20%).',
+      impact: '+$5,240.50 surplus',
+    },
+    {
+      id: 'ins-3',
+      type: 'WARNING',
+      category: 'Groceries & Dining',
+      title: 'Groceries & Dining at 71.7%',
+      description: 'Spent $430 of $600 limit with 24 days remaining. Consider slowing discretionary dining out.',
+      impact: 'Watch Threshold',
+    },
+    {
+      id: 'ins-4',
+      type: 'TIP',
+      category: 'Groceries & Dining',
+      title: '10% Optimization on Dining',
+      description: 'Trimming just 10% from groceries and restaurants could preserve ~$43/mo ($516/yr) in additional net savings.',
+      impact: '+$516/yr potential',
+    },
+  ],
+};
+
 interface FinFlowState {
   user: User | null;
   isAuthenticated: boolean;
@@ -135,6 +192,7 @@ interface FinFlowState {
   transactions: Transaction[];
   budgets: Budget[];
   summary: SummaryData | null;
+  insights: InsightsData | null;
   isAddTransactionOpen: boolean;
   isAddBudgetOpen: boolean;
 
@@ -165,6 +223,7 @@ interface FinFlowState {
   }) => Promise<void>;
   deleteBudget: (id: string) => Promise<void>;
   fetchSummary: (monthYear?: string) => Promise<void>;
+  fetchInsights: (monthYear?: string) => Promise<void>;
 }
 
 export const useFinFlowStore = create<FinFlowState>((set, get) => ({
@@ -201,6 +260,7 @@ export const useFinFlowStore = create<FinFlowState>((set, get) => ({
     ],
     recentTransactions: SAMPLE_TRANSACTIONS.slice(0, 5),
   },
+  insights: SAMPLE_INSIGHTS,
   isAddTransactionOpen: false,
   isAddBudgetOpen: false,
 
@@ -216,6 +276,7 @@ export const useFinFlowStore = create<FinFlowState>((set, get) => ({
         get().fetchSummary(get().selectedMonthYear),
         get().fetchTransactions(),
         get().fetchBudgets(get().selectedMonthYear),
+        get().fetchInsights(get().selectedMonthYear),
       ]);
       return { success: true };
     } catch (error: any) {
@@ -238,6 +299,7 @@ export const useFinFlowStore = create<FinFlowState>((set, get) => ({
         get().fetchSummary(get().selectedMonthYear),
         get().fetchTransactions(),
         get().fetchBudgets(get().selectedMonthYear),
+        get().fetchInsights(get().selectedMonthYear),
       ]);
       return { success: true };
     } catch (error: any) {
@@ -274,6 +336,7 @@ export const useFinFlowStore = create<FinFlowState>((set, get) => ({
       isAuthenticated: true,
       transactions: SAMPLE_TRANSACTIONS,
       budgets: SAMPLE_BUDGETS,
+      insights: SAMPLE_INSIGHTS,
     });
   },
 
@@ -281,6 +344,7 @@ export const useFinFlowStore = create<FinFlowState>((set, get) => ({
     set({ selectedMonthYear: monthYear });
     get().fetchSummary(monthYear);
     get().fetchBudgets(monthYear);
+    get().fetchInsights(monthYear);
   },
   setAddTransactionOpen: (isOpen) => set({ isAddTransactionOpen: isOpen }),
   setAddBudgetOpen: (isOpen) => set({ isAddBudgetOpen: isOpen }),
@@ -294,6 +358,7 @@ export const useFinFlowStore = create<FinFlowState>((set, get) => ({
         get().fetchSummary(get().selectedMonthYear),
         get().fetchTransactions(),
         get().fetchBudgets(get().selectedMonthYear),
+        get().fetchInsights(get().selectedMonthYear),
       ]);
     } catch {
       // Backend not running or unauthenticated - keep graceful showcase demo data
@@ -466,6 +531,18 @@ export const useFinFlowStore = create<FinFlowState>((set, get) => ({
           recentTransactions: txs.slice(0, 5),
         },
       });
+    }
+  },
+
+  fetchInsights: async (monthYear) => {
+    const targetMonth = monthYear || get().selectedMonthYear;
+    try {
+      const data = await insightsService.get(targetMonth);
+      if (data?.healthScore) {
+        set({ insights: data });
+      }
+    } catch {
+      // Keep resilient demo/sample insights
     }
   },
 }));
