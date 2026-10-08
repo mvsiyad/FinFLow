@@ -5,7 +5,6 @@ import { z } from 'zod';
 import { prisma } from '../lib/prisma';
 import { AuthenticatedRequest } from '../middleware/auth.middleware';
 
-// Validation schemas using Zod
 const registerSchema = z.object({
   name: z.string().trim().min(2, 'Name must be at least 2 characters'),
   email: z.string().trim().toLowerCase().email('Invalid email address'),
@@ -32,10 +31,6 @@ const generateToken = (userId: string, email: string): string => {
   return jwt.sign({ userId, email }, secret, { expiresIn });
 };
 
-/**
- * Register a new user
- * POST /api/auth/register
- */
 export const register = async (req: Request, res: Response): Promise<void> => {
   try {
     const parseResult = registerSchema.safeParse(req.body);
@@ -50,7 +45,6 @@ export const register = async (req: Request, res: Response): Promise<void> => {
 
     const { name, email, password } = parseResult.data;
 
-    // Check if user already exists
     const existingUser = await prisma.user.findUnique({
       where: { email },
     });
@@ -63,11 +57,9 @@ export const register = async (req: Request, res: Response): Promise<void> => {
       return;
     }
 
-    // Hash password
     const saltRounds = 12;
     const passwordHash = await bcrypt.hash(password, saltRounds);
 
-    // Create user in database
     const newUser = await prisma.user.create({
       data: {
         name,
@@ -82,17 +74,15 @@ export const register = async (req: Request, res: Response): Promise<void> => {
       },
     });
 
-    // Generate JWT token
     const token = generateToken(newUser.id, newUser.email);
 
-    // Set HTTP-only cookie
     res.cookie(COOKIE_NAME, token, getCookieOptions());
 
     res.status(201).json({
       success: true,
       message: 'Account registered successfully.',
       user: newUser,
-      token, // Also return in payload for flexibility (e.g. mobile or SSR clients)
+      token,
     });
   } catch (error) {
     console.error('[Register Error]:', error);
@@ -103,10 +93,6 @@ export const register = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-/**
- * Log in an existing user
- * POST /api/auth/login
- */
 export const login = async (req: Request, res: Response): Promise<void> => {
   try {
     const parseResult = loginSchema.safeParse(req.body);
@@ -121,7 +107,6 @@ export const login = async (req: Request, res: Response): Promise<void> => {
 
     const { email, password } = parseResult.data;
 
-    // Find user by email
     const user = await prisma.user.findUnique({
       where: { email },
     });

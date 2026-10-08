@@ -4,7 +4,6 @@ import { authenticateToken } from '../middleware/auth.middleware';
 
 const router = Router();
 
-// All insights routes require authentication
 router.use(authenticateToken);
 
 router.get('/', getInsights);

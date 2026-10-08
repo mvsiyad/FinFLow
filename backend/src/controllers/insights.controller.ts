@@ -20,10 +20,6 @@ export interface SmartInsight {
   category?: string;
 }
 
-/**
- * Generate AI & Smart Spending Insights for the authenticated user
- * GET /api/insights
- */
 export const getInsights = async (
   req: AuthenticatedRequest,
   res: Response
@@ -50,7 +46,6 @@ export const getInsights = async (
 
     const { startDate, endDate } = getMonthDateRange(monthYear);
 
-    // Fetch user transactions and budgets concurrently
     const [transactions, budgets] = await Promise.all([
       prisma.transaction.findMany({
         where: {
@@ -70,7 +65,6 @@ export const getInsights = async (
       }),
     ]);
 
-    // Financial totals
     let totalIncome = 0;
     let totalExpense = 0;
     const expenseByCategory: Record<string, number> = {};
@@ -92,7 +86,6 @@ export const getInsights = async (
         ? Number(Math.max(0, ((totalIncome - totalExpense) / totalIncome) * 100).toFixed(1))
         : 0;
 
-    // Days elapsed & burn rate calculation
     const now = new Date();
     const isCurrentMonth = monthYear === currentMonthYear;
     const totalDaysInMonth = new Date(
@@ -114,11 +107,8 @@ export const getInsights = async (
       (totalIncome - projectedMonthEndExpense).toFixed(2)
     );
 
-    // Calculate Financial Health Score (0 - 100)
-    // 1. Savings score: up to 40 pts (40 pts at 40%+ savings rate)
     const savingsScore = Math.min(40, (savingsRate / 40) * 40);
 
-    // 2. Budget adherence: up to 35 pts
     let budgetScore = 35;
     if (budgets.length > 0) {
       let overBudgetCount = 0;
@@ -130,7 +120,6 @@ export const getInsights = async (
       budgetScore = Math.max(0, 35 - (overBudgetCount / budgets.length) * 35);
     }
 
-    // 3. Cash flow stability: up to 25 pts
     let cashFlowScore = 25;
     if (totalIncome === 0 && totalExpense > 0) {
       cashFlowScore = 5;
@@ -165,10 +154,8 @@ export const getInsights = async (
       summaryText = 'Monthly expenses exceed income or major spending caps are breached.';
     }
 
-    // Generate Natural Language AI & Smart Insights
     const insights: SmartInsight[] = [];
 
-    // 1. Budget Alerts Check
     for (const b of budgets) {
       const spent = expenseByCategory[b.category] || 0;
       const percentage = Number(((spent / b.limitAmount) * 100).toFixed(1));
@@ -195,7 +182,6 @@ export const getInsights = async (
       }
     }
 
-    // 2. Savings Velocity Insight
     if (savingsRate >= 30) {
       insights.push({
         id: 'insight-savings-high',
@@ -239,7 +225,6 @@ export const getInsights = async (
       });
     }
 
-    // 4. Burn Rate / Runway Projection
     if (isCurrentMonth && daysRemaining > 0 && totalExpense > 0) {
       insights.push({
         id: 'insight-burn-rate',

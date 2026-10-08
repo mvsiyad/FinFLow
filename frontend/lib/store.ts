@@ -5,11 +5,13 @@ import {
   Budget,
   SummaryData,
   InsightsData,
+  Goal,
   authService,
   transactionService,
   budgetService,
   summaryService,
   insightsService,
+  goalService,
 } from './api';
 
 // Realistic sample data for instant showcase and offline resilience
@@ -184,6 +186,65 @@ const SAMPLE_INSIGHTS: InsightsData = {
   ],
 };
 
+const SAMPLE_GOALS: Goal[] = [
+  {
+    id: 'goal-1',
+    title: 'Emergency Reserve Fund',
+    targetAmount: 10000,
+    currentAmount: 6800,
+    percentage: 68.0,
+    remainingAmount: 3200,
+    isCompleted: false,
+    deadline: new Date(Date.now() + 1000 * 60 * 60 * 24 * 180).toISOString(),
+    daysRemaining: 180,
+    category: 'Emergency',
+    color: '#10b981',
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 'goal-2',
+    title: 'Kyoto & Tokyo Autumn Trip',
+    targetAmount: 3500,
+    currentAmount: 2450,
+    percentage: 70.0,
+    remainingAmount: 1050,
+    isCompleted: false,
+    deadline: new Date(Date.now() + 1000 * 60 * 60 * 24 * 115).toISOString(),
+    daysRemaining: 115,
+    category: 'Travel',
+    color: '#06b6d4',
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 'goal-3',
+    title: 'Next-Gen M-Series Studio',
+    targetAmount: 2200,
+    currentAmount: 1800,
+    percentage: 81.8,
+    remainingAmount: 400,
+    isCompleted: false,
+    deadline: new Date(Date.now() + 1000 * 60 * 60 * 24 * 45).toISOString(),
+    daysRemaining: 45,
+    category: 'Tech',
+    color: '#8b5cf6',
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 'goal-4',
+    title: 'Index Fund Investment Vault',
+    targetAmount: 5000,
+    currentAmount: 5000,
+    percentage: 100.0,
+    remainingAmount: 0,
+    isCompleted: true,
+    deadline: new Date().toISOString(),
+    daysRemaining: 0,
+    category: 'Investments',
+    color: '#f59e0b',
+    createdAt: new Date().toISOString(),
+  },
+];
+
 interface FinFlowState {
   user: User | null;
   isAuthenticated: boolean;
@@ -193,8 +254,12 @@ interface FinFlowState {
   budgets: Budget[];
   summary: SummaryData | null;
   insights: InsightsData | null;
+  goals: Goal[];
   isAddTransactionOpen: boolean;
   isAddBudgetOpen: boolean;
+  isAddGoalOpen: boolean;
+  isDepositGoalOpen: boolean;
+  activeGoalForDeposit: Goal | null;
 
   // Actions
   setUser: (user: User | null) => void;
@@ -205,6 +270,9 @@ interface FinFlowState {
   setSelectedMonthYear: (monthYear: string) => void;
   setAddTransactionOpen: (isOpen: boolean) => void;
   setAddBudgetOpen: (isOpen: boolean) => void;
+  setAddGoalOpen: (isOpen: boolean) => void;
+  setDepositGoalOpen: (isOpen: boolean) => void;
+  setActiveGoalForDeposit: (goal: Goal | null) => void;
   initApp: () => Promise<void>;
   fetchTransactions: (params?: any) => Promise<void>;
   addTransaction: (data: {
@@ -224,6 +292,21 @@ interface FinFlowState {
   deleteBudget: (id: string) => Promise<void>;
   fetchSummary: (monthYear?: string) => Promise<void>;
   fetchInsights: (monthYear?: string) => Promise<void>;
+  fetchGoals: () => Promise<void>;
+  addGoal: (data: {
+    title: string;
+    targetAmount: number;
+    currentAmount?: number;
+    deadline?: string | null;
+    category?: string | null;
+    color?: string;
+  }) => Promise<void>;
+  depositToGoal: (
+    id: string,
+    amount: number,
+    type: 'DEPOSIT' | 'WITHDRAW'
+  ) => Promise<{ success: boolean; message?: string }>;
+  deleteGoal: (id: string) => Promise<void>;
 }
 
 export const useFinFlowStore = create<FinFlowState>((set, get) => ({
@@ -261,8 +344,12 @@ export const useFinFlowStore = create<FinFlowState>((set, get) => ({
     recentTransactions: SAMPLE_TRANSACTIONS.slice(0, 5),
   },
   insights: SAMPLE_INSIGHTS,
+  goals: SAMPLE_GOALS,
   isAddTransactionOpen: false,
   isAddBudgetOpen: false,
+  isAddGoalOpen: false,
+  isDepositGoalOpen: false,
+  activeGoalForDeposit: null,
 
   setUser: (user) => set({ user, isAuthenticated: !!user }),
 
@@ -277,6 +364,7 @@ export const useFinFlowStore = create<FinFlowState>((set, get) => ({
         get().fetchTransactions(),
         get().fetchBudgets(get().selectedMonthYear),
         get().fetchInsights(get().selectedMonthYear),
+        get().fetchGoals(),
       ]);
       return { success: true };
     } catch (error: any) {
@@ -300,6 +388,7 @@ export const useFinFlowStore = create<FinFlowState>((set, get) => ({
         get().fetchTransactions(),
         get().fetchBudgets(get().selectedMonthYear),
         get().fetchInsights(get().selectedMonthYear),
+        get().fetchGoals(),
       ]);
       return { success: true };
     } catch (error: any) {
@@ -337,6 +426,7 @@ export const useFinFlowStore = create<FinFlowState>((set, get) => ({
       transactions: SAMPLE_TRANSACTIONS,
       budgets: SAMPLE_BUDGETS,
       insights: SAMPLE_INSIGHTS,
+      goals: SAMPLE_GOALS,
     });
   },
 
@@ -348,6 +438,9 @@ export const useFinFlowStore = create<FinFlowState>((set, get) => ({
   },
   setAddTransactionOpen: (isOpen) => set({ isAddTransactionOpen: isOpen }),
   setAddBudgetOpen: (isOpen) => set({ isAddBudgetOpen: isOpen }),
+  setAddGoalOpen: (isOpen) => set({ isAddGoalOpen: isOpen }),
+  setDepositGoalOpen: (isOpen) => set({ isDepositGoalOpen: isOpen }),
+  setActiveGoalForDeposit: (goal) => set({ activeGoalForDeposit: goal, isDepositGoalOpen: !!goal }),
 
   initApp: async () => {
     try {
@@ -359,6 +452,7 @@ export const useFinFlowStore = create<FinFlowState>((set, get) => ({
         get().fetchTransactions(),
         get().fetchBudgets(get().selectedMonthYear),
         get().fetchInsights(get().selectedMonthYear),
+        get().fetchGoals(),
       ]);
     } catch {
       // Backend not running or unauthenticated - keep graceful showcase demo data
@@ -544,5 +638,92 @@ export const useFinFlowStore = create<FinFlowState>((set, get) => ({
     } catch {
       // Keep resilient demo/sample insights
     }
+  },
+
+  fetchGoals: async () => {
+    try {
+      const response = await goalService.list();
+      if (response?.data) {
+        set({ goals: response.data });
+      }
+    } catch {
+      // Keep resilient fallback
+    }
+  },
+
+  addGoal: async (data) => {
+    try {
+      const newGoal = await goalService.create(data);
+      set((state) => ({
+        goals: [newGoal, ...state.goals],
+      }));
+    } catch {
+      const target = data.targetAmount;
+      const current = data.currentAmount || 0;
+      const mockGoal: Goal = {
+        id: `goal-${Date.now()}`,
+        title: data.title,
+        targetAmount: target,
+        currentAmount: current,
+        percentage: Number(Math.min(100, (current / target) * 100).toFixed(1)),
+        remainingAmount: Number(Math.max(0, target - current).toFixed(2)),
+        isCompleted: current >= target,
+        deadline: data.deadline,
+        category: data.category || 'General',
+        color: data.color || '#10b981',
+        createdAt: new Date().toISOString(),
+      };
+      set((state) => ({
+        goals: [mockGoal, ...state.goals],
+      }));
+    }
+  },
+
+  depositToGoal: async (id, amount, type) => {
+    try {
+      const updated = await goalService.deposit(id, { amount, type });
+      set((state) => ({
+        goals: state.goals.map((g) => (g.id === id ? updated : g)),
+      }));
+      return { success: true };
+    } catch (error: any) {
+      let errMsg = '';
+      set((state) => ({
+        goals: state.goals.map((g) => {
+          if (g.id !== id) return g;
+          let newCurrent = g.currentAmount;
+          if (type === 'DEPOSIT') {
+            newCurrent += amount;
+          } else {
+            if (amount > g.currentAmount) {
+              errMsg = 'Cannot withdraw more than balance';
+              return g;
+            }
+            newCurrent -= amount;
+          }
+          const percentage = Number(Math.min(100, (newCurrent / g.targetAmount) * 100).toFixed(1));
+          return {
+            ...g,
+            currentAmount: Number(newCurrent.toFixed(2)),
+            percentage,
+            remainingAmount: Number(Math.max(0, g.targetAmount - newCurrent).toFixed(2)),
+            isCompleted: newCurrent >= g.targetAmount,
+          };
+        }),
+      }));
+      if (errMsg) return { success: false, message: errMsg };
+      return { success: true };
+    }
+  },
+
+  deleteGoal: async (id) => {
+    try {
+      await goalService.delete(id);
+    } catch {
+      // Offline fallback
+    }
+    set((state) => ({
+      goals: state.goals.filter((g) => g.id !== id),
+    }));
   },
 }));

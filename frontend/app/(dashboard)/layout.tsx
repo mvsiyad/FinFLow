@@ -5,6 +5,8 @@ import { Sidebar } from '@/components/Sidebar';
 import { Navbar } from '@/components/Navbar';
 import { AddTransactionModal } from '@/components/AddTransactionModal';
 import { AddBudgetModal } from '@/components/AddBudgetModal';
+import { AddGoalModal } from '@/components/AddGoalModal';
+import { DepositModal } from '@/components/DepositModal';
 import { useFinFlowStore } from '@/lib/store';
 
 export default function DashboardLayout({
@@ -36,6 +38,8 @@ export default function DashboardLayout({
       {/* Interactive Modals */}
       <AddTransactionModal />
       <AddBudgetModal />
+      <AddGoalModal />
+      <DepositModal />
     </div>
   );
 }

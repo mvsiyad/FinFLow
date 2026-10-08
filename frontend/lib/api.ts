@@ -223,3 +223,64 @@ export const insightsService = {
     return res.data.data;
   },
 };
+
+export interface Goal {
+  id: string;
+  userId?: string;
+  title: string;
+  targetAmount: number;
+  currentAmount: number;
+  deadline?: string | null;
+  category?: string | null;
+  color?: string;
+  percentage: number;
+  remainingAmount: number;
+  isCompleted: boolean;
+  daysRemaining?: number | null;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+export interface GoalsResponse {
+  data: Goal[];
+  metrics: {
+    totalVaults: number;
+    totalTarget: number;
+    totalSaved: number;
+    overallProgress: number;
+    completedCount: number;
+    activeCount: number;
+  };
+}
+
+export const goalService = {
+  list: async (): Promise<GoalsResponse> => {
+    const res = await api.get('/goals');
+    return res.data;
+  },
+  create: async (data: {
+    title: string;
+    targetAmount: number;
+    currentAmount?: number;
+    deadline?: string | null;
+    category?: string | null;
+    color?: string;
+  }): Promise<Goal> => {
+    const res = await api.post('/goals', data);
+    return res.data.data;
+  },
+  deposit: async (
+    id: string,
+    data: { amount: number; type: 'DEPOSIT' | 'WITHDRAW' }
+  ): Promise<Goal> => {
+    const res = await api.post(`/goals/${id}/deposit`, data);
+    return res.data.data;
+  },
+  update: async (id: string, data: Partial<Goal>): Promise<Goal> => {
+    const res = await api.put(`/goals/${id}`, data);
+    return res.data.data;
+  },
+  delete: async (id: string): Promise<void> => {
+    await api.delete(`/goals/${id}`);
+  },
+};

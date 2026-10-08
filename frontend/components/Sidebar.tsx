@@ -8,6 +8,7 @@ import {
   ArrowLeftRight,
   PieChart,
   Wallet,
+  Target,
   Settings,
   PlusCircle,
   TrendingUp,
@@ -31,6 +32,11 @@ const navItems = [
     name: 'Budgets & Limits',
     href: '/budgets',
     icon: Wallet,
+  },
+  {
+    name: 'Savings & Vaults',
+    href: '/goals',
+    icon: Target,
   },
   {
     name: 'Analytics',

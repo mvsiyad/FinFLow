@@ -110,6 +110,15 @@ The backend API will run at `http://localhost:5000`.
 | `GET` | `/api/summary` | Fetch net balance, total income/expenses, savings rate, and category breakdown | **Yes (JWT)** |
 | `GET` | `/api/insights` | FinFlow AI Financial Health Score (0–100), daily burn rate, and predictive smart insights | **Yes (JWT)** |
 
+### Savings Goals & Vaults
+| Method | Endpoint | Description | Protected |
+| :--- | :--- | :--- | :---: |
+| `GET` | `/api/goals` | Fetch all savings vaults with progress percentages and days remaining | **Yes (JWT)** |
+| `POST` | `/api/goals` | Create a new savings vault target with deadline and category | **Yes (JWT)** |
+| `POST` | `/api/goals/:id/deposit` | Deposit or withdraw funds from a vault with balance validation | **Yes (JWT)** |
+| `PUT` | `/api/goals/:id` | Update savings goal target parameters | **Yes (JWT)** |
+| `DELETE` | `/api/goals/:id` | Delete savings goal vault | **Yes (JWT)** |
+
 ---
 
 ### Frontend Setup (Phase 3)

@@ -7,6 +7,7 @@ import transactionRoutes from './routes/transaction.routes';
 import budgetRoutes from './routes/budget.routes';
 import summaryRoutes from './routes/summary.routes';
 import insightsRoutes from './routes/insights.routes';
+import goalRoutes from './routes/goal.routes';
 
 // Load environment variables
 dotenv.config();
@@ -40,6 +41,7 @@ app.use('/api/transactions', transactionRoutes);
 app.use('/api/budgets', budgetRoutes);
 app.use('/api/summary', summaryRoutes);
 app.use('/api/insights', insightsRoutes);
+app.use('/api/goals', goalRoutes);
 
 // 404 Handler
 app.use((_req: Request, res: Response) => {

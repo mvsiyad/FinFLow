@@ -5,6 +5,7 @@ import { Sparkles, PlusCircle } from 'lucide-react';
 import { SummaryCards } from '@/components/SummaryCards';
 import { RecentTransactions } from '@/components/RecentTransactions';
 import { BudgetProgressCards } from '@/components/BudgetProgressCards';
+import { VaultsOverviewWidget } from '@/components/VaultsOverviewWidget';
 import { BudgetAlertBanner } from '@/components/BudgetAlertBanner';
 import { SmartInsightsCard } from '@/components/SmartInsightsCard';
 import { ExpenseTrendChart } from '@/components/Charts/ExpenseTrendChart';
@@ -83,6 +84,7 @@ export default function DashboardPage() {
         </div>
         <div className="lg:col-span-1 space-y-6">
           <BudgetProgressCards />
+          <VaultsOverviewWidget />
         </div>
       </div>
     </div>
