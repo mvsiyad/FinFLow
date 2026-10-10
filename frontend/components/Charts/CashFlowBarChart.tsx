@@ -44,10 +44,10 @@ export const CashFlowBarChart: React.FC<CashFlowBarChartProps> = ({
 
   if (data.length === 0) {
     return (
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 backdrop-blur-md text-center">
-        <h3 className="text-sm font-bold text-white tracking-tight">{title}</h3>
+      <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-6 backdrop-blur-md text-center">
+        <h3 className="font-serif text-sm font-bold text-white tracking-tight">{title}</h3>
         <p className="text-xs text-slate-400 mt-1 mb-8">{subtitle}</p>
-        <div className="h-48 flex flex-col items-center justify-center text-slate-500 text-xs">
+        <div className="h-48 flex flex-col items-center justify-center text-slate-500 text-xs font-mono">
           <span>No expenditure data available</span>
         </div>
       </div>
@@ -62,12 +62,12 @@ export const CashFlowBarChart: React.FC<CashFlowBarChartProps> = ({
   }));
 
   return (
-    <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 sm:p-6 backdrop-blur-md shadow-lg shadow-black/20 flex flex-col">
+    <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-5 sm:p-6 backdrop-blur-md shadow-lg shadow-black/20 flex flex-col">
       <div className="flex items-center gap-2 mb-1">
-        <div className="p-1.5 rounded-lg bg-teal-500/10 text-teal-400 border border-teal-500/20">
+        <div className="p-1.5 rounded-lg bg-[#132247] text-amber-400 border border-[#1b2f5f]">
           <BarChart3 className="w-4 h-4" />
         </div>
-        <h3 className="text-sm sm:text-base font-bold text-white tracking-tight">
+        <h3 className="font-serif text-sm sm:text-base font-bold text-white tracking-tight">
           {title}
         </h3>
       </div>
@@ -81,8 +81,8 @@ export const CashFlowBarChart: React.FC<CashFlowBarChartProps> = ({
           >
             <CartesianGrid
               strokeDasharray="3 3"
-              stroke="#334155"
-              opacity={0.35}
+              stroke="#1b2b52"
+              opacity={0.5}
               vertical={false}
             />
             <XAxis
@@ -90,7 +90,7 @@ export const CashFlowBarChart: React.FC<CashFlowBarChartProps> = ({
               stroke="#64748b"
               fontSize={11}
               tickLine={false}
-              axisLine={{ stroke: '#334155' }}
+              axisLine={{ stroke: '#1b2b52' }}
               interval={0}
               angle={-20}
               textAnchor="end"
@@ -107,17 +107,17 @@ export const CashFlowBarChart: React.FC<CashFlowBarChartProps> = ({
                 if (active && payload && payload.length) {
                   const item = payload[0].payload;
                   return (
-                    <div className="rounded-xl border border-slate-700 bg-slate-950/95 p-3 shadow-xl backdrop-blur-md">
-                      <p className="text-xs font-semibold text-slate-200 mb-1">
+                    <div className="rounded-xl border border-[#1b2b52] bg-[#091226]/95 p-3 shadow-xl backdrop-blur-md">
+                      <p className="font-serif text-xs font-semibold text-slate-200 mb-1">
                         {item.fullName}
                       </p>
-                      <div className="flex items-center justify-between gap-4 text-xs">
+                      <div className="flex items-center justify-between gap-4 text-xs font-mono">
                         <span className="text-slate-400">Total Spent:</span>
-                        <span className="font-bold text-teal-400">
+                        <span className="font-bold text-amber-300 tabular-nums">
                           {formatCurrency(item.amount)}
                         </span>
                       </div>
-                      <div className="flex items-center justify-between gap-4 text-xs mt-0.5">
+                      <div className="flex items-center justify-between gap-4 text-xs mt-0.5 font-mono">
                         <span className="text-slate-400">Proportion:</span>
                         <span className="font-bold text-slate-200">
                           {item.percentage}%
@@ -131,7 +131,7 @@ export const CashFlowBarChart: React.FC<CashFlowBarChartProps> = ({
             />
             <Bar
               dataKey="amount"
-              fill="#0d9488"
+              fill="#eab308"
               radius={[6, 6, 0, 0]}
               className="hover:opacity-85 transition-opacity"
             />

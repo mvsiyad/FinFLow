@@ -73,23 +73,23 @@ export const SmartInsightsCard: React.FC = () => {
   };
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-b from-slate-900/90 via-slate-900/60 to-slate-950/90 p-5 sm:p-7 backdrop-blur-xl shadow-2xl shadow-black/40">
+    <div className="relative overflow-hidden rounded-3xl border border-[#1a2d59] bg-gradient-to-b from-[#0b162f]/95 via-[#081126]/90 to-[#060b18]/95 p-5 sm:p-7 backdrop-blur-xl shadow-2xl shadow-black/40">
       {/* Ambient background accent */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-b from-emerald-500/10 via-teal-500/5 to-transparent blur-3xl pointer-events-none rounded-full" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-b from-amber-400/10 via-amber-500/5 to-transparent blur-3xl pointer-events-none rounded-full" />
 
       {/* Header with Title and AI Badge */}
-      <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-800/80">
+      <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-[#17274f]/80">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-500 to-cyan-400 flex items-center justify-center text-slate-950 font-bold shadow-lg shadow-emerald-500/20">
+          <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-amber-400 via-amber-300 to-yellow-400 flex items-center justify-center text-slate-950 font-bold shadow-lg shadow-amber-500/20">
             <Zap className="w-5 h-5 fill-slate-950 stroke-none" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h2 className="text-base sm:text-lg font-extrabold text-white tracking-tight">
+              <h2 className="font-serif text-base sm:text-lg font-bold text-white tracking-tight">
                 FinFlow AI Spending Insights
               </h2>
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-[10px] font-bold uppercase tracking-wider">
-                <Sparkles className="w-3 h-3" />
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-[10px] font-mono font-bold uppercase tracking-wider">
+                <Sparkles className="w-3 h-3 text-amber-400" />
                 <span>Smart Engine</span>
               </span>
             </div>
@@ -103,10 +103,10 @@ export const SmartInsightsCard: React.FC = () => {
           <button
             onClick={handleRefresh}
             disabled={isRefreshing || isLoading}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-300 bg-slate-950/80 hover:bg-slate-800 border border-slate-800 transition-all cursor-pointer disabled:opacity-50 active:scale-95"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-300 bg-[#091226]/80 hover:bg-[#122246] border border-[#17274f] transition-all cursor-pointer disabled:opacity-50 active:scale-95"
             title="Recalculate AI Insights"
           >
-            <RefreshCw className={`w-3.5 h-3.5 text-emerald-400 ${isRefreshing ? 'animate-spin' : ''}`} />
+            <RefreshCw className={`w-3.5 h-3.5 text-amber-400 ${isRefreshing ? 'animate-spin' : ''}`} />
             <span>Recalculate</span>
           </button>
         </div>
@@ -115,19 +115,19 @@ export const SmartInsightsCard: React.FC = () => {
       {/* Top Intelligence Grid: Health Score & Burn Rate */}
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-5 my-6">
         {/* Financial Health Score (5 cols) */}
-        <div className="lg:col-span-5 p-5 rounded-2xl bg-slate-950/60 border border-slate-800/90 flex flex-col justify-between">
+        <div className="lg:col-span-5 p-5 rounded-2xl bg-[#091226]/80 border border-[#17274f] flex flex-col justify-between">
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
+            <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
               Financial Health Score
             </span>
             <div className="flex items-baseline gap-3 mt-2">
-              <span className="text-4xl sm:text-5xl font-black text-white tracking-tight">
+              <span className="font-mono text-4xl sm:text-5xl font-black text-white tracking-tight tabular-nums">
                 {healthScore.score}
               </span>
-              <span className="text-xs text-slate-500 font-semibold">/100</span>
+              <span className="font-mono text-xs text-slate-500 font-semibold">/100</span>
 
               <div
-                className={`ml-auto px-3 py-1 rounded-xl text-xs font-extrabold border ${getScoreColor(
+                className={`ml-auto px-3 py-1 rounded-xl font-mono text-xs font-extrabold border ${getScoreColor(
                   healthScore.score
                 )}`}
               >
@@ -135,19 +135,19 @@ export const SmartInsightsCard: React.FC = () => {
               </div>
             </div>
 
-            <p className="text-sm font-bold text-slate-200 mt-3">{healthScore.status}</p>
+            <p className="font-serif text-base font-bold text-slate-200 mt-3">{healthScore.status}</p>
             <p className="text-xs text-slate-400 mt-1">{healthScore.summary}</p>
           </div>
 
           {/* Progress Indicator */}
-          <div className="mt-4 pt-3 border-t border-slate-800/60">
-            <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+          <div className="mt-4 pt-3 border-t border-[#17274f]/60">
+            <div className="w-full h-2 rounded-full bg-[#132247] overflow-hidden">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-teal-400 via-emerald-400 to-cyan-300 transition-all duration-700"
+                className="h-full rounded-full bg-gradient-to-r from-amber-400 via-yellow-300 to-sky-300 transition-all duration-700"
                 style={{ width: `${Math.min(100, healthScore.score)}%` }}
               />
             </div>
-            <div className="flex justify-between items-center text-[10px] text-slate-500 mt-1 font-semibold">
+            <div className="flex justify-between items-center font-mono text-[10px] text-slate-500 mt-1 font-semibold">
               <span>0 (At Risk)</span>
               <span>70 (Target)</span>
               <span>100 (Optimal)</span>
@@ -158,54 +158,54 @@ export const SmartInsightsCard: React.FC = () => {
         {/* Burn Rate & Runway Metrics (7 cols) */}
         <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
           {/* Daily Burn Rate */}
-          <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80 flex flex-col justify-between">
+          <div className="p-4 rounded-2xl bg-[#091226]/80 border border-[#17274f] flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-1.5 text-slate-400 text-xs font-semibold mb-1">
                 <Flame className="w-3.5 h-3.5 text-amber-400" />
                 <span>Daily Burn Rate</span>
               </div>
-              <p className="text-xl sm:text-2xl font-extrabold text-white mt-1">
+              <p className="font-mono text-xl sm:text-2xl font-extrabold text-white mt-1 tabular-nums">
                 {formatCurrency(burnRate.dailyAverage)}
               </p>
             </div>
-            <span className="text-[11px] text-slate-500 mt-2 block">
-              Avg daily outflow across {burnRate.daysElapsed} days
+            <span className="font-mono text-[11px] text-slate-500 mt-2 block">
+              Avg outflow across {burnRate.daysElapsed} days
             </span>
           </div>
 
           {/* Projected Expense */}
-          <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80 flex flex-col justify-between">
+          <div className="p-4 rounded-2xl bg-[#091226]/80 border border-[#17274f] flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-1.5 text-slate-400 text-xs font-semibold mb-1">
-                <Calendar className="w-3.5 h-3.5 text-teal-400" />
+                <Calendar className="w-3.5 h-3.5 text-sky-400" />
                 <span>Projected Month End</span>
               </div>
-              <p className="text-xl sm:text-2xl font-extrabold text-teal-400 mt-1">
+              <p className="font-mono text-xl sm:text-2xl font-extrabold text-sky-300 mt-1 tabular-nums">
                 {formatCurrency(burnRate.projectedExpense)}
               </p>
             </div>
-            <span className="text-[11px] text-slate-500 mt-2 block">
-              Expected total outlays for {selectedMonthYear}
+            <span className="font-mono text-[11px] text-slate-500 mt-2 block">
+              Expected total for {selectedMonthYear}
             </span>
           </div>
 
           {/* Projected Month-End Surplus */}
-          <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80 flex flex-col justify-between">
+          <div className="p-4 rounded-2xl bg-[#091226]/80 border border-[#17274f] flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-1.5 text-slate-400 text-xs font-semibold mb-1">
-                <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
+                <TrendingUp className="w-3.5 h-3.5 text-amber-400" />
                 <span>Forecast Surplus</span>
               </div>
               <p
-                className={`text-xl sm:text-2xl font-extrabold mt-1 ${
-                  burnRate.projectedSurplus >= 0 ? 'text-emerald-400' : 'text-rose-400'
+                className={`font-mono text-xl sm:text-2xl font-extrabold mt-1 tabular-nums ${
+                  burnRate.projectedSurplus >= 0 ? 'text-amber-300' : 'text-rose-400'
                 }`}
               >
                 {burnRate.projectedSurplus >= 0 ? '+' : ''}
                 {formatCurrency(burnRate.projectedSurplus)}
               </p>
             </div>
-            <span className="text-[11px] text-slate-500 mt-2 block">
+            <span className="font-mono text-[11px] text-slate-500 mt-2 block">
               {burnRate.daysRemaining} days remaining in cycle
             </span>
           </div>
@@ -217,40 +217,40 @@ export const SmartInsightsCard: React.FC = () => {
         <div className="flex items-center gap-1.5 overflow-x-auto text-xs pb-1">
           <button
             onClick={() => setSelectedFilter('ALL')}
-            className={`px-3 py-1.5 rounded-xl font-semibold transition-all cursor-pointer ${
+            className={`px-3 py-1.5 rounded-xl font-bold transition-all cursor-pointer ${
               selectedFilter === 'ALL'
-                ? 'bg-emerald-400 text-slate-950 shadow-md shadow-emerald-500/20'
-                : 'text-slate-400 hover:text-slate-200 bg-slate-950/60 border border-slate-800'
+                ? 'bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 text-slate-950 shadow-md shadow-amber-500/20'
+                : 'text-slate-400 hover:text-slate-200 bg-[#091226] border border-[#17274f]'
             }`}
           >
             All Insights ({items.length})
           </button>
           <button
             onClick={() => setSelectedFilter('ALERT')}
-            className={`px-3 py-1.5 rounded-xl font-semibold transition-all cursor-pointer ${
+            className={`px-3 py-1.5 rounded-xl font-bold transition-all cursor-pointer ${
               selectedFilter === 'ALERT'
                 ? 'bg-rose-500 text-white shadow-md shadow-rose-500/20'
-                : 'text-slate-400 hover:text-slate-200 bg-slate-950/60 border border-slate-800'
+                : 'text-slate-400 hover:text-slate-200 bg-[#091226] border border-[#17274f]'
             }`}
           >
             Alerts & Warnings
           </button>
           <button
             onClick={() => setSelectedFilter('TIP')}
-            className={`px-3 py-1.5 rounded-xl font-semibold transition-all cursor-pointer ${
+            className={`px-3 py-1.5 rounded-xl font-bold transition-all cursor-pointer ${
               selectedFilter === 'TIP'
-                ? 'bg-cyan-400 text-slate-950 shadow-md shadow-cyan-500/20'
-                : 'text-slate-400 hover:text-slate-200 bg-slate-950/60 border border-slate-800'
+                ? 'bg-amber-300 text-slate-950 shadow-md shadow-amber-500/20'
+                : 'text-slate-400 hover:text-slate-200 bg-[#091226] border border-[#17274f]'
             }`}
           >
             AI Opportunities
           </button>
           <button
             onClick={() => setSelectedFilter('POSITIVE')}
-            className={`px-3 py-1.5 rounded-xl font-semibold transition-all cursor-pointer ${
+            className={`px-3 py-1.5 rounded-xl font-bold transition-all cursor-pointer ${
               selectedFilter === 'POSITIVE'
-                ? 'bg-teal-400 text-slate-950 shadow-md shadow-teal-500/20'
-                : 'text-slate-400 hover:text-slate-200 bg-slate-950/60 border border-slate-800'
+                ? 'bg-sky-400 text-slate-950 shadow-md shadow-sky-500/20'
+                : 'text-slate-400 hover:text-slate-200 bg-[#091226] border border-[#17274f]'
             }`}
           >
             Wins
@@ -261,26 +261,26 @@ export const SmartInsightsCard: React.FC = () => {
       {/* Insights Cards Grid */}
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-3.5">
         {filteredItems.length === 0 ? (
-          <div className="col-span-full py-8 text-center text-xs text-slate-500">
+          <div className="col-span-full py-8 text-center text-xs text-slate-500 font-mono">
             No insights found under this filter.
           </div>
         ) : (
           filteredItems.map((insight) => (
             <div
               key={insight.id}
-              className="p-4 rounded-2xl bg-slate-950/70 border border-slate-800/80 hover:border-slate-700 transition-all flex flex-col justify-between"
+              className="p-4 rounded-2xl bg-[#091226]/85 border border-[#17274f] hover:border-amber-400/30 transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-2">
                   <div className="flex items-center gap-2">
                     {getInsightIcon(insight.type)}
-                    <h3 className="text-xs sm:text-sm font-bold text-white tracking-tight">
+                    <h3 className="font-serif text-xs sm:text-sm font-bold text-white tracking-tight">
                       {insight.title}
                     </h3>
                   </div>
 
                   <span
-                    className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border shrink-0 ${getInsightBadgeStyle(
+                    className={`text-[10px] font-mono font-extrabold px-2 py-0.5 rounded-md border shrink-0 ${getInsightBadgeStyle(
                       insight.type
                     )}`}
                   >
@@ -294,9 +294,9 @@ export const SmartInsightsCard: React.FC = () => {
               </div>
 
               {insight.impact && (
-                <div className="mt-3 pt-2.5 border-t border-slate-800/60 flex items-center justify-between text-xs">
+                <div className="mt-3 pt-2.5 border-t border-[#17274f]/60 flex items-center justify-between text-xs">
                   <span className="text-[11px] text-slate-400 font-medium">Estimated Impact:</span>
-                  <span className="font-bold text-emerald-400">{insight.impact}</span>
+                  <span className="font-mono font-bold text-amber-300">{insight.impact}</span>
                 </div>
               )}
             </div>

@@ -54,15 +54,15 @@ export const AddBudgetModal: React.FC = () => {
       />
 
       {/* Modal Dialog Card */}
-      <div className="relative w-full max-w-md overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/95 p-6 sm:p-8 shadow-2xl shadow-teal-950/20 backdrop-blur-xl z-10 animate-in fade-in zoom-in-95 duration-200">
-        <div className="flex items-center justify-between pb-5 border-b border-slate-800">
+      <div className="relative w-full max-w-md overflow-hidden rounded-2xl border border-[#1b2b52] bg-[#0b162f]/98 p-6 sm:p-8 shadow-2xl shadow-black/60 backdrop-blur-xl z-10 animate-in fade-in zoom-in-95 duration-200">
+        <div className="flex items-center justify-between pb-5 border-b border-[#17274f]">
           <div>
-            <h3 className="text-xl font-bold text-white tracking-tight">Set Category Budget</h3>
+            <h3 className="font-serif text-xl font-bold text-white tracking-tight">Set Category Budget</h3>
             <p className="text-xs text-slate-400 mt-0.5">Define spending thresholds and alerts</p>
           </div>
           <button
             onClick={() => setAddBudgetOpen(false)}
-            className="rounded-lg p-1.5 text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-colors cursor-pointer"
+            className="rounded-lg p-1.5 text-slate-400 hover:text-slate-100 hover:bg-[#122246] transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -78,10 +78,10 @@ export const AddBudgetModal: React.FC = () => {
               </span>
               <select
                 {...register('category')}
-                className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-slate-950/70 border border-slate-800 text-sm text-slate-100 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500/30 transition-all cursor-pointer"
+                className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm text-slate-100 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all cursor-pointer"
               >
                 {TRANSACTION_CATEGORIES.map((cat) => (
-                  <option key={cat} value={cat} className="bg-slate-900 text-slate-200">
+                  <option key={cat} value={cat} className="bg-[#0b162f] text-slate-200">
                     {cat}
                   </option>
                 ))}
@@ -106,7 +106,7 @@ export const AddBudgetModal: React.FC = () => {
                 step="1"
                 placeholder="500"
                 {...register('limitAmount')}
-                className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-slate-950/70 border border-slate-800 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500/30 transition-all"
+                className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm font-mono text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
               />
             </div>
             {errors.limitAmount && (
@@ -124,7 +124,7 @@ export const AddBudgetModal: React.FC = () => {
               <input
                 type="month"
                 {...register('monthYear')}
-                className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-slate-950/70 border border-slate-800 text-sm text-slate-100 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500/30 transition-all cursor-pointer"
+                className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm font-mono text-slate-100 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all cursor-pointer"
               />
             </div>
             {errors.monthYear && (
@@ -132,18 +132,18 @@ export const AddBudgetModal: React.FC = () => {
             )}
           </div>
 
-          <div className="flex items-center justify-end gap-3 pt-4 border-t border-slate-800">
+          <div className="flex items-center justify-end gap-3 pt-4 border-t border-[#17274f]">
             <button
               type="button"
               onClick={() => setAddBudgetOpen(false)}
-              className="px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-colors cursor-pointer"
+              className="px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-100 hover:bg-[#122246] transition-colors cursor-pointer"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isSubmitting}
-              className="px-5 py-2.5 rounded-xl text-xs font-semibold text-slate-950 bg-gradient-to-r from-teal-400 to-emerald-300 hover:from-teal-300 hover:to-emerald-200 transition-all shadow-md shadow-teal-500/20 active:scale-95 disabled:opacity-50 cursor-pointer"
+              className="px-5 py-2.5 rounded-xl text-xs font-bold text-slate-950 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 hover:from-amber-300 hover:to-yellow-300 transition-all shadow-md shadow-amber-500/20 active:scale-95 disabled:opacity-50 cursor-pointer"
             >
               {isSubmitting ? 'Saving...' : 'Set Budget Limit'}
             </button>

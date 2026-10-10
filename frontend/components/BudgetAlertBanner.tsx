@@ -71,11 +71,12 @@ export const BudgetAlertBanner: React.FC = () => {
                 {primaryAlert.category}
               </span>{' '}
               is at{' '}
-              <span className="font-extrabold">
+              <span className="font-mono font-extrabold tabular-nums">
                 {primaryAlert.percentageUsed.toFixed(0)}%
               </span>{' '}
-              of capacity ({formatCurrency(primaryAlert.spentAmount)} spent of{' '}
-              {formatCurrency(primaryAlert.limitAmount)} limit).
+              of capacity (
+              <span className="font-mono tabular-nums">{formatCurrency(primaryAlert.spentAmount)}</span> spent of{' '}
+              <span className="font-mono tabular-nums">{formatCurrency(primaryAlert.limitAmount)}</span> limit).
             </p>
           </div>
         </div>

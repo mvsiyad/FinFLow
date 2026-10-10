@@ -68,10 +68,10 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="rounded-3xl border border-slate-800 bg-slate-900/80 p-6 sm:p-8 backdrop-blur-xl shadow-2xl shadow-black/40">
+    <div className="rounded-3xl border border-[#17274f] bg-[#0c1630]/90 p-6 sm:p-8 backdrop-blur-xl shadow-2xl shadow-black/50">
       {/* Header */}
       <div className="text-center mb-6">
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+        <h1 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">
           Create Account
         </h1>
         <p className="text-xs sm:text-sm text-slate-400 mt-1.5">
@@ -100,7 +100,7 @@ export default function RegisterPage() {
               {...register('name')}
               type="text"
               placeholder="Alex Rivera"
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950/70 border border-slate-800 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/30 transition-all"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
             />
           </div>
           {errors.name && (
@@ -119,7 +119,7 @@ export default function RegisterPage() {
               {...register('email')}
               type="email"
               placeholder="alex@example.com"
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950/70 border border-slate-800 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/30 transition-all"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
             />
           </div>
           {errors.email && (
@@ -138,7 +138,7 @@ export default function RegisterPage() {
               {...register('password')}
               type={showPassword ? 'text' : 'password'}
               placeholder="At least 6 characters"
-              className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-slate-950/70 border border-slate-800 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/30 transition-all"
+              className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
             />
             <button
               type="button"
@@ -166,7 +166,7 @@ export default function RegisterPage() {
               {...register('confirmPassword')}
               type={showPassword ? 'text' : 'password'}
               placeholder="Repeat password"
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950/70 border border-slate-800 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/30 transition-all"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
             />
           </div>
           {errors.confirmPassword && (
@@ -179,11 +179,11 @@ export default function RegisterPage() {
         {/* Features Checklist */}
         <div className="pt-2 pb-1 space-y-1.5 text-xs text-slate-400">
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+            <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />
             <span>Real-time budget threshold warnings</span>
           </div>
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+            <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />
             <span>Interactive trend visualization & CSV export</span>
           </div>
         </div>
@@ -192,7 +192,7 @@ export default function RegisterPage() {
         <button
           type="submit"
           disabled={isSubmitting || isLoading}
-          className="w-full mt-3 flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm text-slate-950 bg-gradient-to-r from-emerald-400 to-teal-300 hover:from-emerald-300 hover:to-teal-200 transition-all shadow-lg shadow-emerald-500/20 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+          className="w-full mt-3 flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm text-slate-950 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 hover:from-amber-300 hover:to-yellow-300 transition-all shadow-lg shadow-amber-500/25 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
         >
           {isSubmitting || isLoading ? (
             <>
@@ -213,7 +213,7 @@ export default function RegisterPage() {
         Already registered?{' '}
         <Link
           href="/login"
-          className="font-bold text-emerald-400 hover:text-emerald-300 hover:underline transition-colors"
+          className="font-bold text-amber-400 hover:text-amber-300 hover:underline transition-colors"
         >
           Sign in
         </Link>

@@ -99,10 +99,10 @@ export const ExpenseTrendChart: React.FC<ExpenseTrendChartProps> = ({
 
   if (chartData.length === 0) {
     return (
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 backdrop-blur-md text-center">
-        <h3 className="text-sm font-bold text-white tracking-tight">{title}</h3>
+      <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-6 backdrop-blur-md text-center">
+        <h3 className="font-serif text-sm font-bold text-white tracking-tight">{title}</h3>
         <p className="text-xs text-slate-400 mt-1 mb-8">{subtitle}</p>
-        <div className="h-48 flex flex-col items-center justify-center text-slate-500 text-xs">
+        <div className="h-48 flex flex-col items-center justify-center text-slate-500 text-xs font-mono">
           <span>No transaction timeline data available</span>
         </div>
       </div>
@@ -110,15 +110,15 @@ export const ExpenseTrendChart: React.FC<ExpenseTrendChartProps> = ({
   }
 
   return (
-    <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 sm:p-6 backdrop-blur-md shadow-lg shadow-black/20 flex flex-col">
+    <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-5 sm:p-6 backdrop-blur-md shadow-lg shadow-black/20 flex flex-col">
       {/* Header with Title and Mode Toggles */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
           <div className="flex items-center gap-2">
-            <div className="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+            <div className="p-1.5 rounded-lg bg-[#132247] text-amber-400 border border-[#1b2f5f]">
               <TrendingUp className="w-4 h-4" />
             </div>
-            <h3 className="text-sm sm:text-base font-bold text-white tracking-tight">
+            <h3 className="font-serif text-sm sm:text-base font-bold text-white tracking-tight">
               {title}
             </h3>
           </div>
@@ -126,12 +126,12 @@ export const ExpenseTrendChart: React.FC<ExpenseTrendChartProps> = ({
         </div>
 
         {/* Filter Pills */}
-        <div className="flex items-center gap-1.5 bg-slate-950/80 p-1 rounded-xl border border-slate-800/80 self-start sm:self-auto text-xs">
+        <div className="flex items-center gap-1.5 bg-[#091226] p-1 rounded-xl border border-[#17274f] self-start sm:self-auto text-xs">
           <button
             onClick={() => setFilterMode('BOTH')}
             className={`px-3 py-1 rounded-lg font-medium transition-all ${
               filterMode === 'BOTH'
-                ? 'bg-slate-800 text-white shadow-sm'
+                ? 'bg-[#14234b] text-white shadow-sm font-semibold'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -152,7 +152,7 @@ export const ExpenseTrendChart: React.FC<ExpenseTrendChartProps> = ({
             onClick={() => setFilterMode('INCOME')}
             className={`px-3 py-1 rounded-lg font-medium transition-all flex items-center gap-1 ${
               filterMode === 'INCOME'
-                ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                ? 'bg-amber-400/20 text-amber-300 border border-amber-400/30'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -163,30 +163,30 @@ export const ExpenseTrendChart: React.FC<ExpenseTrendChartProps> = ({
       </div>
 
       {/* Mini Summary stats */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6 p-3 rounded-xl bg-slate-950/40 border border-slate-800/60">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6 p-3 rounded-xl bg-[#091226]/80 border border-[#17274f]/60">
         <div>
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+          <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-slate-400">
             Total Flow In
           </span>
-          <p className="text-sm sm:text-base font-bold text-emerald-400">
+          <p className="font-mono text-sm sm:text-base font-bold text-amber-300 tabular-nums">
             +{formatCurrency(totalIncome)}
           </p>
         </div>
         <div>
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+          <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-slate-400">
             Total Flow Out
           </span>
-          <p className="text-sm sm:text-base font-bold text-rose-400">
+          <p className="font-mono text-sm sm:text-base font-bold text-rose-400 tabular-nums">
             -{formatCurrency(totalExpense)}
           </p>
         </div>
         <div className="col-span-2 sm:col-span-1">
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+          <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-slate-400">
             Net Differential
           </span>
           <p
-            className={`text-sm sm:text-base font-bold ${
-              totalIncome - totalExpense >= 0 ? 'text-teal-400' : 'text-amber-400'
+            className={`font-mono text-sm sm:text-base font-bold tabular-nums ${
+              totalIncome - totalExpense >= 0 ? 'text-amber-400' : 'text-rose-400'
             }`}
           >
             {formatCurrency(totalIncome - totalExpense)}
@@ -202,12 +202,12 @@ export const ExpenseTrendChart: React.FC<ExpenseTrendChartProps> = ({
             margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
           >
             <defs>
-              {/* Income Gradient */}
+              {/* Income Gold Gradient */}
               <linearGradient id="incomeGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#10b981" stopOpacity={0.4} />
-                <stop offset="95%" stopColor="#10b981" stopOpacity={0.0} />
+                <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.4} />
+                <stop offset="95%" stopColor="#f59e0b" stopOpacity={0.0} />
               </linearGradient>
-              {/* Expense Gradient */}
+              {/* Expense Coral Gradient */}
               <linearGradient id="expenseGradient" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#f43f5e" stopOpacity={0.4} />
                 <stop offset="95%" stopColor="#f43f5e" stopOpacity={0.0} />
@@ -216,8 +216,8 @@ export const ExpenseTrendChart: React.FC<ExpenseTrendChartProps> = ({
 
             <CartesianGrid
               strokeDasharray="3 3"
-              stroke="#334155"
-              opacity={0.35}
+              stroke="#1b2b52"
+              opacity={0.5}
               vertical={false}
             />
 
@@ -226,7 +226,7 @@ export const ExpenseTrendChart: React.FC<ExpenseTrendChartProps> = ({
               stroke="#64748b"
               fontSize={11}
               tickLine={false}
-              axisLine={{ stroke: '#334155' }}
+              axisLine={{ stroke: '#1b2b52' }}
             />
             <YAxis
               stroke="#64748b"
@@ -241,18 +241,18 @@ export const ExpenseTrendChart: React.FC<ExpenseTrendChartProps> = ({
                 if (active && payload && payload.length) {
                   const data = payload[0].payload;
                   return (
-                    <div className="rounded-xl border border-slate-700 bg-slate-950/95 p-3.5 shadow-2xl backdrop-blur-md">
-                      <p className="text-xs font-semibold text-slate-300 mb-2 border-b border-slate-800 pb-1">
+                    <div className="rounded-xl border border-[#1b2b52] bg-[#091226]/95 p-3.5 shadow-2xl backdrop-blur-md">
+                      <p className="font-mono text-xs font-semibold text-slate-300 mb-2 border-b border-[#17274f] pb-1">
                         {data.displayDate}
                       </p>
-                      <div className="space-y-1.5 text-xs">
+                      <div className="space-y-1.5 text-xs font-mono">
                         {(filterMode === 'BOTH' || filterMode === 'INCOME') && (
                           <div className="flex items-center justify-between gap-4">
-                            <span className="flex items-center gap-1.5 text-emerald-400">
-                              <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                            <span className="flex items-center gap-1.5 text-amber-300">
+                              <span className="w-2 h-2 rounded-full bg-amber-400" />
                               Income:
                             </span>
-                            <span className="font-bold text-white">
+                            <span className="font-bold text-white tabular-nums">
                               +{formatCurrency(data.income)}
                             </span>
                           </div>
@@ -263,17 +263,17 @@ export const ExpenseTrendChart: React.FC<ExpenseTrendChartProps> = ({
                               <span className="w-2 h-2 rounded-full bg-rose-400" />
                               Expense:
                             </span>
-                            <span className="font-bold text-white">
+                            <span className="font-bold text-white tabular-nums">
                               -{formatCurrency(data.expense)}
                             </span>
                           </div>
                         )}
                         {filterMode === 'BOTH' && (
-                          <div className="flex items-center justify-between gap-4 pt-1.5 border-t border-slate-800">
+                          <div className="flex items-center justify-between gap-4 pt-1.5 border-t border-[#17274f]">
                             <span className="text-slate-400 font-medium">Net:</span>
                             <span
-                              className={`font-bold ${
-                                data.net >= 0 ? 'text-teal-400' : 'text-rose-400'
+                              className={`font-bold tabular-nums ${
+                                data.net >= 0 ? 'text-amber-300' : 'text-rose-400'
                               }`}
                             >
                               {data.net >= 0 ? '+' : ''}
@@ -293,7 +293,7 @@ export const ExpenseTrendChart: React.FC<ExpenseTrendChartProps> = ({
               <Area
                 type="monotone"
                 dataKey="income"
-                stroke="#10b981"
+                stroke="#f59e0b"
                 strokeWidth={2.5}
                 fillOpacity={1}
                 fill="url(#incomeGradient)"

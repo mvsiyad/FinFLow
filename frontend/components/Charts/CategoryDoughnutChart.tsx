@@ -11,16 +11,16 @@ import {
 import { formatCurrency } from '@/lib/utils';
 
 const CATEGORY_COLORS = [
-  '#10b981', // emerald-500
-  '#06b6d4', // cyan-500
-  '#6366f1', // indigo-500
-  '#8b5cf6', // violet-500
-  '#f59e0b', // amber-500
-  '#f43f5e', // rose-500
-  '#ec4899', // pink-500
-  '#3b82f6', // blue-500
-  '#14b8a6', // teal-500
-  '#a855f7', // purple-500
+  '#f59e0b', // warm amber-gold
+  '#38bdf8', // crisp sky blue
+  '#fbbf24', // light golden yellow
+  '#818cf8', // periwinkle
+  '#f43f5e', // coral rose
+  '#34d399', // soft mint
+  '#c084fc', // amethyst
+  '#fb923c', // warm tangerine
+  '#2dd4bf', // teal
+  '#cbd5e1', // platinum
 ];
 
 interface CategoryDoughnutChartProps {
@@ -49,7 +49,7 @@ export const CategoryDoughnutChart: React.FC<CategoryDoughnutChartProps> = ({
 
   if (!isMounted) {
     return (
-      <div className="h-72 flex items-center justify-center text-slate-500 text-xs">
+      <div className="h-72 flex items-center justify-center text-slate-500 text-xs font-mono">
         Loading chart visualization...
       </div>
     );
@@ -57,10 +57,10 @@ export const CategoryDoughnutChart: React.FC<CategoryDoughnutChartProps> = ({
 
   if (data.length === 0 || totalExpense === 0) {
     return (
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 backdrop-blur-md text-center">
-        <h3 className="text-sm font-bold text-white tracking-tight">{title}</h3>
+      <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-6 backdrop-blur-md text-center">
+        <h3 className="font-serif text-sm font-bold text-white tracking-tight">{title}</h3>
         <p className="text-xs text-slate-400 mt-1 mb-8">{subtitle}</p>
-        <div className="h-48 flex flex-col items-center justify-center text-slate-500 text-xs">
+        <div className="h-48 flex flex-col items-center justify-center text-slate-500 text-xs font-mono">
           <span>No expense data recorded for this period</span>
         </div>
       </div>
@@ -77,17 +77,17 @@ export const CategoryDoughnutChart: React.FC<CategoryDoughnutChartProps> = ({
   const activeItem = activeIndex !== null ? chartData[activeIndex] : null;
 
   return (
-    <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 sm:p-6 backdrop-blur-md shadow-lg shadow-black/20 flex flex-col">
+    <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-5 sm:p-6 backdrop-blur-md shadow-lg shadow-black/20 flex flex-col">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h3 className="text-sm font-bold text-white tracking-tight">{title}</h3>
+          <h3 className="font-serif text-sm sm:text-base font-bold text-white tracking-tight">{title}</h3>
           <p className="text-xs text-slate-400 mt-0.5">{subtitle}</p>
         </div>
         <div className="text-right">
-          <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 block">
+          <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-slate-400 block">
             Total Spend
           </span>
-          <span className="text-sm font-extrabold text-white">
+          <span className="font-mono text-sm font-extrabold text-white tabular-nums">
             {formatCurrency(totalExpense)}
           </span>
         </div>
@@ -101,7 +101,7 @@ export const CategoryDoughnutChart: React.FC<CategoryDoughnutChartProps> = ({
                 if (active && payload && payload.length) {
                   const current = payload[0].payload;
                   return (
-                    <div className="rounded-xl border border-slate-700 bg-slate-950/95 p-3 shadow-xl backdrop-blur-md">
+                    <div className="rounded-xl border border-[#1b2b52] bg-[#091226]/95 p-3 shadow-xl backdrop-blur-md">
                       <div className="flex items-center gap-2 mb-1">
                         <span
                           className="w-2.5 h-2.5 rounded-full"
@@ -111,15 +111,15 @@ export const CategoryDoughnutChart: React.FC<CategoryDoughnutChartProps> = ({
                           {current.name}
                         </span>
                       </div>
-                      <div className="flex items-center justify-between gap-4 text-xs">
+                      <div className="flex items-center justify-between gap-4 text-xs font-mono">
                         <span className="text-slate-400">Amount:</span>
-                        <span className="font-bold text-slate-100">
+                        <span className="font-bold text-slate-100 tabular-nums">
                           {formatCurrency(current.value)}
                         </span>
                       </div>
-                      <div className="flex items-center justify-between gap-4 text-xs mt-0.5">
+                      <div className="flex items-center justify-between gap-4 text-xs mt-0.5 font-mono">
                         <span className="text-slate-400">Share:</span>
-                        <span className="font-bold text-emerald-400">
+                        <span className="font-bold text-amber-300">
                           {current.percentage}%
                         </span>
                       </div>
@@ -146,9 +146,9 @@ export const CategoryDoughnutChart: React.FC<CategoryDoughnutChartProps> = ({
                 <Cell
                   key={`cell-${index}`}
                   fill={entry.color}
-                  stroke="#0f172a"
+                  stroke="#091226"
                   strokeWidth={2}
-                  className="transition-all duration-200 hover:opacity-80"
+                  className="transition-all duration-200 hover:opacity-85"
                 />
               ))}
             </Pie>
@@ -157,16 +157,16 @@ export const CategoryDoughnutChart: React.FC<CategoryDoughnutChartProps> = ({
 
         {/* Center label inside doughnut */}
         <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+          <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-slate-400">
             {activeItem ? activeItem.name : 'Expenses'}
           </span>
-          <span className="text-lg font-extrabold text-white mt-0.5">
+          <span className="font-mono text-lg font-extrabold text-white mt-0.5 tabular-nums">
             {activeItem
               ? `${activeItem.percentage}%`
               : formatCurrency(totalExpense)}
           </span>
           {activeItem && (
-            <span className="text-[11px] text-slate-400">
+            <span className="font-mono text-[11px] text-slate-400 tabular-nums">
               {formatCurrency(activeItem.value)}
             </span>
           )}
@@ -174,7 +174,7 @@ export const CategoryDoughnutChart: React.FC<CategoryDoughnutChartProps> = ({
       </div>
 
       {/* Dynamic legend grid */}
-      <div className="mt-4 pt-4 border-t border-slate-800/80 grid grid-cols-2 gap-2 max-h-36 overflow-y-auto pr-1">
+      <div className="mt-4 pt-4 border-t border-[#17274f]/80 grid grid-cols-2 gap-2 max-h-36 overflow-y-auto pr-1">
         {chartData.map((item, index) => (
           <div
             key={item.name}
@@ -182,8 +182,8 @@ export const CategoryDoughnutChart: React.FC<CategoryDoughnutChartProps> = ({
             onMouseLeave={() => setActiveIndex(null)}
             className={`flex items-center justify-between p-1.5 rounded-lg text-xs transition-colors cursor-pointer ${
               activeIndex === index
-                ? 'bg-slate-800/80 ring-1 ring-slate-700'
-                : 'hover:bg-slate-800/40'
+                ? 'bg-[#122246] ring-1 ring-[#1b2f5f]'
+                : 'hover:bg-[#122246]/40'
             }`}
           >
             <div className="flex items-center gap-2 truncate">
@@ -193,7 +193,7 @@ export const CategoryDoughnutChart: React.FC<CategoryDoughnutChartProps> = ({
               />
               <span className="text-slate-300 font-medium truncate">{item.name}</span>
             </div>
-            <span className="text-slate-400 font-semibold shrink-0 ml-2">
+            <span className="font-mono text-slate-400 font-semibold shrink-0 ml-2">
               {item.percentage}%
             </span>
           </div>

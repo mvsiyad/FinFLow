@@ -59,10 +59,10 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="rounded-3xl border border-slate-800 bg-slate-900/80 p-6 sm:p-8 backdrop-blur-xl shadow-2xl shadow-black/40">
+    <div className="rounded-3xl border border-[#17274f] bg-[#0c1630]/90 p-6 sm:p-8 backdrop-blur-xl shadow-2xl shadow-black/50">
       {/* Header */}
       <div className="text-center mb-6">
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+        <h1 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">
           Welcome back
         </h1>
         <p className="text-xs sm:text-sm text-slate-400 mt-1.5">
@@ -91,7 +91,7 @@ export default function LoginPage() {
               {...register('email')}
               type="email"
               placeholder="alex@example.com"
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950/70 border border-slate-800 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/30 transition-all"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
             />
           </div>
           {errors.email && (
@@ -112,7 +112,7 @@ export default function LoginPage() {
               {...register('password')}
               type={showPassword ? 'text' : 'password'}
               placeholder="••••••••"
-              className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-slate-950/70 border border-slate-800 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/30 transition-all"
+              className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
             />
             <button
               type="button"
@@ -133,7 +133,7 @@ export default function LoginPage() {
         <button
           type="submit"
           disabled={isSubmitting || isLoading}
-          className="w-full mt-2 flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm text-slate-950 bg-gradient-to-r from-emerald-400 to-teal-300 hover:from-emerald-300 hover:to-teal-200 transition-all shadow-lg shadow-emerald-500/20 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+          className="w-full mt-2 flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm text-slate-950 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 hover:from-amber-300 hover:to-yellow-300 transition-all shadow-lg shadow-amber-500/25 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
         >
           {isSubmitting || isLoading ? (
             <>
@@ -152,9 +152,9 @@ export default function LoginPage() {
       {/* Divider */}
       <div className="relative my-6 text-center">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-slate-800" />
+          <div className="w-full border-t border-[#17274f]" />
         </div>
-        <span className="relative px-3 bg-slate-900 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+        <span className="relative px-3 bg-[#0c1630] text-[11px] font-semibold uppercase tracking-wider text-slate-400 font-mono">
           Or Quick Access
         </span>
       </div>
@@ -163,9 +163,9 @@ export default function LoginPage() {
       <button
         type="button"
         onClick={handleDemoAccess}
-        className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl font-semibold text-xs sm:text-sm text-slate-300 bg-slate-950/80 hover:bg-slate-800/80 border border-slate-800 hover:border-slate-700 transition-all shadow-sm active:scale-[0.98] cursor-pointer"
+        className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl font-semibold text-xs sm:text-sm text-slate-200 bg-[#070e20] hover:bg-[#111f42] border border-[#17274f] hover:border-amber-400/40 transition-all shadow-sm active:scale-[0.98] cursor-pointer"
       >
-        <Sparkles className="w-4 h-4 text-emerald-400" />
+        <Sparkles className="w-4 h-4 text-amber-400" />
         <span>One-Click Demo Mode (Explore Live App)</span>
       </button>
 
@@ -174,7 +174,7 @@ export default function LoginPage() {
         Don&apos;t have an account?{' '}
         <Link
           href="/register"
-          className="font-bold text-emerald-400 hover:text-emerald-300 hover:underline transition-colors"
+          className="font-bold text-amber-400 hover:text-amber-300 hover:underline transition-colors"
         >
           Create account
         </Link>

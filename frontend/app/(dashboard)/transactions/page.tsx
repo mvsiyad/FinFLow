@@ -45,7 +45,7 @@ export default function TransactionsPage() {
       {/* Page Title & Add Button */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-white">Transactions History</h1>
+          <h1 className="font-serif text-2xl font-bold tracking-tight text-white">Transactions History</h1>
           <p className="text-xs sm:text-sm text-slate-400 mt-0.5">
             Manage, filter, and inspect your recorded earnings and expenditures
           </p>
@@ -54,16 +54,16 @@ export default function TransactionsPage() {
         <div className="flex items-center gap-2.5 self-start sm:self-auto">
           <button
             onClick={() => exportTransactionsToCSV(filteredTransactions, 'finflow-transactions')}
-            className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-200 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition-all shadow-md active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-200 bg-[#0b162f] hover:bg-[#122246] border border-[#17274f] hover:border-amber-400/30 transition-all shadow-md active:scale-95 cursor-pointer"
             title="Export filtered records to CSV"
           >
-            <Download className="w-4 h-4 text-emerald-400" />
+            <Download className="w-4 h-4 text-amber-400" />
             <span>Export CSV</span>
           </button>
 
           <button
             onClick={() => setAddTransactionOpen(true)}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-950 bg-emerald-400 hover:bg-emerald-300 transition-all shadow-md shadow-emerald-500/20 active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-slate-950 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 hover:from-amber-300 hover:to-yellow-300 transition-all shadow-md shadow-amber-500/20 active:scale-95 cursor-pointer"
           >
             <Plus className="w-4 h-4 stroke-[2.5]" />
             <span>New Transaction</span>
@@ -72,7 +72,7 @@ export default function TransactionsPage() {
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-md">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-2xl border border-[#17274f] bg-[#0c1630]/75 backdrop-blur-md">
         {/* Search */}
         <div className="relative">
           <Search className="w-4 h-4 absolute left-3 top-3 text-slate-400" />
@@ -81,7 +81,7 @@ export default function TransactionsPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by title or category..."
-            className="w-full pl-9 pr-3 py-2 rounded-xl bg-slate-950/70 border border-slate-800 text-xs sm:text-sm text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-emerald-500"
+            className="w-full pl-9 pr-3 py-2 rounded-xl bg-[#070e20] border border-[#17274f] text-xs sm:text-sm text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-amber-400"
           />
         </div>
 
@@ -91,7 +91,7 @@ export default function TransactionsPage() {
           <select
             value={selectedType}
             onChange={(e) => setSelectedType(e.target.value as any)}
-            className="w-full pl-8 pr-3 py-2 rounded-xl bg-slate-950/70 border border-slate-800 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-emerald-500 cursor-pointer"
+            className="w-full pl-8 pr-3 py-2 rounded-xl bg-[#070e20] border border-[#17274f] text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-amber-400 cursor-pointer"
           >
             <option value="ALL">All Types</option>
             <option value="INCOME">Income Only</option>
@@ -105,7 +105,7 @@ export default function TransactionsPage() {
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="w-full pl-8 pr-3 py-2 rounded-xl bg-slate-950/70 border border-slate-800 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-emerald-500 cursor-pointer"
+            className="w-full pl-8 pr-3 py-2 rounded-xl bg-[#070e20] border border-[#17274f] text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-amber-400 cursor-pointer"
           >
             <option value="ALL">All Categories</option>
             {TRANSACTION_CATEGORIES.map((c) => (
@@ -118,10 +118,10 @@ export default function TransactionsPage() {
       </div>
 
       {/* Transactions Table */}
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/60 overflow-hidden backdrop-blur-md shadow-xl">
+      <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 overflow-hidden backdrop-blur-md shadow-xl">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs sm:text-sm">
-            <thead className="border-b border-slate-800 bg-slate-950/80 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+            <thead className="border-b border-[#17274f] bg-[#070e20]/90 text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-400">
               <tr>
                 <th className="py-3.5 px-4 sm:px-6">Description</th>
                 <th className="py-3.5 px-4">Category</th>
@@ -130,10 +130,10 @@ export default function TransactionsPage() {
                 <th className="py-3.5 px-4 text-center">Action</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60 text-slate-200">
+            <tbody className="divide-y divide-[#17274f]/60 text-slate-200">
               {filteredTransactions.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="py-12 text-center text-slate-500">
+                  <td colSpan={5} className="py-12 text-center text-slate-500 font-mono text-xs">
                     No transactions match the selected filters.
                   </td>
                 </tr>
@@ -143,14 +143,14 @@ export default function TransactionsPage() {
                   return (
                     <tr
                       key={tx.id}
-                      className="hover:bg-slate-800/30 transition-colors group"
+                      className="hover:bg-[#122246]/40 transition-colors group"
                     >
                       <td className="py-3.5 px-4 sm:px-6">
                         <div className="flex items-center gap-3">
                           <div
                             className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border ${
                               isIncome
-                                ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
+                                ? 'bg-amber-400/10 text-amber-300 border-amber-400/20'
                                 : 'bg-rose-500/10 text-rose-400 border-rose-500/20'
                             }`}
                           >
@@ -164,20 +164,20 @@ export default function TransactionsPage() {
                         </div>
                       </td>
                       <td className="py-3.5 px-4">
-                        <span className="inline-block px-2.5 py-1 rounded-md bg-slate-800 text-[11px] font-medium text-slate-300">
+                        <span className="inline-block px-2.5 py-1 rounded-md bg-[#132247] text-[11px] font-mono font-medium text-slate-300">
                           {tx.category}
                         </span>
                       </td>
                       <td className="py-3.5 px-4 text-slate-400 whitespace-nowrap">
-                        <div className="flex items-center gap-1.5">
+                        <div className="flex items-center gap-1.5 font-mono text-xs">
                           <Calendar className="w-3.5 h-3.5 text-slate-500" />
                           <span>{formatDate(tx.date)}</span>
                         </div>
                       </td>
                       <td className="py-3.5 px-4 text-right whitespace-nowrap">
                         <span
-                          className={`font-bold ${
-                            isIncome ? 'text-emerald-400' : 'text-slate-100'
+                          className={`font-mono font-bold tabular-nums ${
+                            isIncome ? 'text-amber-400' : 'text-slate-100'
                           }`}
                         >
                           {isIncome ? '+' : '-'}

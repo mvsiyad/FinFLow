@@ -38,11 +38,11 @@ export default function AnalyticsPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold mb-2">
-            <PieIcon className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-mono font-semibold mb-2">
+            <PieIcon className="w-3.5 h-3.5 text-amber-400" />
             <span>Interactive Data Visualization</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          <h1 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">
             Financial Analytics & Insights
           </h1>
           <p className="text-xs sm:text-sm text-slate-400 mt-1">
@@ -57,73 +57,73 @@ export default function AnalyticsPage() {
       {/* Top 4 KPI Metrics */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Total Inflow */}
-        <div className="p-4 sm:p-5 rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-md">
+        <div className="p-4 sm:p-5 rounded-2xl border border-[#17274f] bg-[#0c1630]/75 backdrop-blur-md">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <span className="font-mono text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
               Total Inflow
             </span>
-            <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+            <div className="p-2 rounded-xl bg-amber-400/10 text-amber-300 border border-amber-400/20">
               <ArrowUpRight className="w-4 h-4" />
             </div>
           </div>
-          <p className="text-xl sm:text-2xl font-extrabold text-emerald-400 mt-2">
+          <p className="font-mono text-xl sm:text-2xl font-extrabold text-amber-300 mt-2 tabular-nums">
             +{formatCurrency(metrics.totalIncome)}
           </p>
-          <span className="text-[11px] text-slate-500 mt-1 block">
+          <span className="font-mono text-[11px] text-slate-500 mt-1 block">
             Aggregated earnings
           </span>
         </div>
 
         {/* Total Outflow */}
-        <div className="p-4 sm:p-5 rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-md">
+        <div className="p-4 sm:p-5 rounded-2xl border border-[#17274f] bg-[#0c1630]/75 backdrop-blur-md">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <span className="font-mono text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
               Total Outflow
             </span>
             <div className="p-2 rounded-xl bg-rose-500/10 text-rose-400 border border-rose-500/20">
               <ArrowDownRight className="w-4 h-4" />
             </div>
           </div>
-          <p className="text-xl sm:text-2xl font-extrabold text-rose-400 mt-2">
+          <p className="font-mono text-xl sm:text-2xl font-extrabold text-rose-400 mt-2 tabular-nums">
             -{formatCurrency(metrics.totalExpense)}
           </p>
-          <span className="text-[11px] text-slate-500 mt-1 block">
+          <span className="font-mono text-[11px] text-slate-500 mt-1 block">
             Recorded expenditures
           </span>
         </div>
 
         {/* Savings Rate */}
-        <div className="p-4 sm:p-5 rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-md">
+        <div className="p-4 sm:p-5 rounded-2xl border border-[#17274f] bg-[#0c1630]/75 backdrop-blur-md">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <span className="font-mono text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
               Savings Rate
             </span>
-            <div className="p-2 rounded-xl bg-teal-500/10 text-teal-400 border border-teal-500/20">
+            <div className="p-2 rounded-xl bg-sky-400/10 text-sky-300 border border-sky-400/20">
               <Percent className="w-4 h-4" />
             </div>
           </div>
-          <p className="text-xl sm:text-2xl font-extrabold text-white mt-2">
+          <p className="font-mono text-xl sm:text-2xl font-extrabold text-white mt-2 tabular-nums">
             {metrics.savingsRate.toFixed(1)}%
           </p>
-          <span className="text-[11px] text-slate-500 mt-1 block">
+          <span className="font-mono text-[11px] text-slate-500 mt-1 block">
             Retained cash flow margin
           </span>
         </div>
 
         {/* Top Expense Category */}
-        <div className="p-4 sm:p-5 rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-md">
+        <div className="p-4 sm:p-5 rounded-2xl border border-[#17274f] bg-[#0c1630]/75 backdrop-blur-md">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <span className="font-mono text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
               Top Category
             </span>
-            <div className="p-2 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+            <div className="p-2 rounded-xl bg-[#132247] text-amber-400 border border-[#1b2f5f]">
               <ShieldCheck className="w-4 h-4" />
             </div>
           </div>
-          <p className="text-lg sm:text-xl font-extrabold text-white mt-2 truncate">
+          <p className="text-base sm:text-lg font-bold text-white mt-2 truncate">
             {topCategory ? topCategory.category : 'None'}
           </p>
-          <span className="text-[11px] text-slate-500 mt-1 block">
+          <span className="font-mono text-[11px] text-slate-400 mt-1 block tabular-nums">
             {topCategory
               ? `${formatCurrency(topCategory.amount)} (${topCategory.percentage}%)`
               : 'No recorded expenses'}

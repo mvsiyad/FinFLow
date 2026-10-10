@@ -79,21 +79,21 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       <aside
         className={cn(
           'fixed top-0 bottom-0 left-0 z-50 flex flex-col w-64 border-r transition-transform duration-300 ease-in-out lg:static lg:translate-x-0',
-          'bg-slate-950/95 border-slate-800/80 text-slate-200 backdrop-blur-xl',
+          'bg-[#091226]/95 border-[#152347] text-slate-200 backdrop-blur-xl',
           isOpen ? 'translate-x-0' : '-translate-x-full'
         )}
       >
         {/* Brand Header */}
-        <div className="flex items-center gap-3 px-6 h-20 border-b border-slate-800/60">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-slate-950 font-black text-xl">
+        <div className="flex items-center gap-3 px-6 h-20 border-b border-[#152347]/80">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-400 via-amber-300 to-yellow-400 flex items-center justify-center shadow-lg shadow-amber-500/20 text-slate-950 font-black text-xl">
             <TrendingUp className="w-5 h-5 stroke-[2.5]" />
           </div>
           <div>
-            <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
+            <span className="font-serif text-2xl font-bold tracking-tight bg-gradient-to-r from-amber-100 via-white to-amber-200 bg-clip-text text-transparent">
               FinFlow
             </span>
-            <span className="block text-[10px] uppercase tracking-wider text-emerald-400 font-semibold">
-              Personal Wealth OS
+            <span className="block font-mono text-[9px] uppercase tracking-widest text-amber-400/90 font-semibold">
+              Wealth OS
             </span>
           </div>
         </div>
@@ -105,7 +105,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
               setAddTransactionOpen(true);
               if (onClose) onClose();
             }}
-            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm text-slate-950 bg-gradient-to-r from-emerald-400 to-teal-300 hover:from-emerald-300 hover:to-teal-200 transition-all duration-200 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 active:scale-[0.98] cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-xs sm:text-sm text-slate-950 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 hover:from-amber-300 hover:to-yellow-300 transition-all duration-200 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 active:scale-[0.98] cursor-pointer"
           >
             <PlusCircle className="w-4 h-4 stroke-[2.5]" />
             <span>New Transaction</span>
@@ -114,7 +114,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 
         {/* Navigation Items */}
         <nav className="flex-1 px-3 py-4 space-y-1.5 overflow-y-auto">
-          <div className="px-3 pb-2 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+          <div className="px-3 pb-2 text-[11px] font-semibold uppercase tracking-wider text-slate-400 font-mono">
             Navigation
           </div>
           {navItems.map((item) => {
@@ -131,19 +131,16 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                 className={cn(
                   'flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 group relative',
                   isActive
-                    ? 'text-emerald-400 bg-emerald-500/10 font-semibold'
-                    : 'text-slate-400 hover:text-slate-100 hover:bg-slate-900/60'
+                    ? 'text-amber-300 bg-amber-400/10 font-semibold border-r-2 border-amber-400'
+                    : 'text-slate-400 hover:text-amber-100 hover:bg-[#0f1d3c]/60'
                 )}
               >
-                {isActive && (
-                  <span className="absolute left-0 top-1.5 bottom-1.5 w-1 rounded-r-full bg-emerald-500" />
-                )}
                 <Icon
                   className={cn(
                     'w-4 h-4 transition-colors',
                     isActive
-                      ? 'text-emerald-400'
-                      : 'text-slate-400 group-hover:text-slate-200'
+                      ? 'text-amber-400'
+                      : 'text-slate-400 group-hover:text-amber-200'
                   )}
                 />
                 <span>{item.name}</span>
@@ -153,22 +150,22 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         </nav>
 
         {/* User Footer Profile */}
-        <div className="p-3.5 border-t border-slate-800/60 bg-slate-900/40 flex items-center justify-between gap-2">
+        <div className="p-3.5 border-t border-[#152347] bg-[#0b162f]/60 flex items-center justify-between gap-2">
           <Link
             href="/settings"
             onClick={onClose}
-            className="flex items-center gap-2.5 min-w-0 flex-1 p-1 rounded-xl hover:bg-slate-800/50 transition-colors group"
+            className="flex items-center gap-2.5 min-w-0 flex-1 p-1 rounded-xl hover:bg-[#122246] transition-colors group"
             title="Open Settings"
           >
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-emerald-500 to-cyan-500 flex items-center justify-center font-bold text-slate-950 text-xs shadow-md shrink-0">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-400 to-yellow-300 flex items-center justify-center font-bold text-slate-950 text-xs shadow-md shrink-0">
               {user?.name ? user.name.slice(0, 2).toUpperCase() : 'FF'}
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-semibold text-slate-200 truncate group-hover:text-emerald-400 transition-colors">
-                {user?.name || 'Alex Rivera'}
+              <p className="text-xs font-semibold text-slate-200 truncate group-hover:text-amber-300 transition-colors">
+                {user?.name || 'Investor'}
               </p>
-              <p className="text-[10px] text-slate-400 truncate">
-                {user?.email || 'demo@finflow.dev'}
+              <p className="text-[10px] text-slate-400 truncate font-mono">
+                {user?.email || 'user@finflow.dev'}
               </p>
             </div>
           </Link>

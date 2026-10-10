@@ -18,7 +18,7 @@ export default function BudgetsPage() {
       {/* Title & Action */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-white">Monthly Budgets</h1>
+          <h1 className="font-serif text-2xl font-bold tracking-tight text-white">Monthly Budgets</h1>
           <p className="text-xs sm:text-sm text-slate-400 mt-0.5">
             Configure monthly category thresholds to prevent spending overruns
           </p>
@@ -26,7 +26,7 @@ export default function BudgetsPage() {
 
         <button
           onClick={() => setAddBudgetOpen(true)}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-950 bg-teal-400 hover:bg-teal-300 transition-all shadow-md shadow-teal-500/20 active:scale-95 cursor-pointer self-start sm:self-auto"
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-slate-950 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 hover:from-amber-300 hover:to-yellow-300 transition-all shadow-md shadow-amber-500/20 active:scale-95 cursor-pointer self-start sm:self-auto"
         >
           <Plus className="w-4 h-4 stroke-[2.5]" />
           <span>Set Category Budget</span>
@@ -37,22 +37,22 @@ export default function BudgetsPage() {
       <BudgetAlertBanner />
 
       {/* Overview Stat Banner */}
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 sm:p-6 backdrop-blur-md">
+      <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-5 sm:p-6 backdrop-blur-md">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+            <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-400">
               Total Budget Allocated
             </span>
-            <p className="text-2xl font-extrabold text-white mt-1">{formatCurrency(totalLimit)}</p>
-            <p className="text-xs text-slate-400 mt-1">Across {budgets.length} active categories</p>
+            <p className="font-mono text-2xl font-extrabold text-white mt-1 tabular-nums">{formatCurrency(totalLimit)}</p>
+            <p className="text-xs text-slate-400 mt-1 font-mono">Across {budgets.length} active categories</p>
           </div>
 
           <div>
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+            <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-400">
               Total Budget Consumed
             </span>
-            <p className="text-2xl font-extrabold text-teal-400 mt-1">{formatCurrency(totalSpent)}</p>
-            <p className="text-xs text-slate-400 mt-1">
+            <p className="font-mono text-2xl font-extrabold text-amber-300 mt-1 tabular-nums">{formatCurrency(totalSpent)}</p>
+            <p className="text-xs text-slate-400 mt-1 font-mono">
               {formatCurrency(Math.max(0, totalLimit - totalSpent))} remaining allowance
             </p>
           </div>
@@ -60,16 +60,16 @@ export default function BudgetsPage() {
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs">
               <span className="font-semibold text-slate-300">Overall Budget Utilization</span>
-              <span className="font-bold text-slate-100">{overallPercentage.toFixed(1)}%</span>
+              <span className="font-mono font-bold text-slate-100">{overallPercentage.toFixed(1)}%</span>
             </div>
-            <div className="w-full h-2.5 rounded-full bg-slate-800 overflow-hidden">
+            <div className="w-full h-2.5 rounded-full bg-[#132247] overflow-hidden">
               <div
                 className={`h-full rounded-full transition-all duration-500 ${
                   overallPercentage >= 90
                     ? 'bg-rose-500'
                     : overallPercentage >= 70
                     ? 'bg-amber-400'
-                    : 'bg-emerald-400'
+                    : 'bg-amber-300'
                 }`}
                 style={{ width: `${Math.min(100, overallPercentage)}%` }}
               />
@@ -81,15 +81,15 @@ export default function BudgetsPage() {
       {/* Category Budgets Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
         {budgets.length === 0 ? (
-          <div className="col-span-full py-16 text-center rounded-2xl border border-dashed border-slate-800 bg-slate-900/20">
+          <div className="col-span-full py-16 text-center rounded-2xl border border-dashed border-[#17274f] bg-[#0c1630]/30">
             <Target className="w-10 h-10 mx-auto text-slate-600 mb-3" />
-            <h3 className="text-base font-semibold text-slate-300">No category budgets yet</h3>
+            <h3 className="font-serif text-base font-semibold text-slate-300">No category budgets yet</h3>
             <p className="text-xs text-slate-500 max-w-sm mx-auto mt-1 mb-4">
               Set spending limits for dining, housing, utilities or entertainment to receive instant alerts.
             </p>
             <button
               onClick={() => setAddBudgetOpen(true)}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-slate-950 bg-teal-400 hover:bg-teal-300 transition-all cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-slate-950 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 hover:from-amber-300 hover:to-yellow-300 transition-all cursor-pointer"
             >
               <Plus className="w-4 h-4" />
               <span>Add First Budget</span>
@@ -105,7 +105,7 @@ export default function BudgetsPage() {
             ) : isWarning ? (
               <AlertTriangle className="w-4 h-4 text-amber-400" />
             ) : (
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <CheckCircle2 className="w-4 h-4 text-amber-300" />
             );
 
             const statusText = isCritical
@@ -118,29 +118,29 @@ export default function BudgetsPage() {
               ? 'bg-rose-500/10 text-rose-400 border-rose-500/20'
               : isWarning
               ? 'bg-amber-400/10 text-amber-300 border-amber-400/20'
-              : 'bg-emerald-400/10 text-emerald-400 border-emerald-400/20';
+              : 'bg-amber-400/10 text-amber-300 border-amber-400/20';
 
             const progressBarColor = isCritical
               ? 'bg-rose-500'
               : isWarning
               ? 'bg-amber-400'
-              : 'bg-emerald-400';
+              : 'bg-amber-300';
 
             return (
               <div
                 key={b.id}
-                className="relative rounded-2xl border border-slate-800 bg-slate-900/60 p-5 backdrop-blur-md shadow-lg flex flex-col justify-between hover:border-slate-700/80 transition-all"
+                className="relative rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-5 backdrop-blur-md shadow-lg flex flex-col justify-between hover:border-amber-400/30 transition-all"
               >
                 <div>
-                  <div className="flex items-center justify-between pb-3 border-b border-slate-800/80">
+                  <div className="flex items-center justify-between pb-3 border-b border-[#17274f]/80">
                     <div>
-                      <h3 className="text-base font-bold text-slate-100">{b.category}</h3>
-                      <p className="text-[11px] text-slate-400">{b.monthYear} Budget</p>
+                      <h3 className="font-serif text-base font-bold text-slate-100">{b.category}</h3>
+                      <p className="text-[11px] text-slate-400 font-mono">{b.monthYear} Budget</p>
                     </div>
 
                     <div className="flex items-center gap-1.5">
                       <div
-                        className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold border ${statusColor}`}
+                        className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono font-semibold border ${statusColor}`}
                       >
                         {statusIcon}
                         <span>{statusText}</span>
@@ -159,14 +159,14 @@ export default function BudgetsPage() {
                   {/* Limit & Spent Numbers */}
                   <div className="flex items-baseline justify-between mt-4">
                     <div>
-                      <span className="text-xs text-slate-400">Spent</span>
-                      <p className="text-xl font-extrabold text-white">
+                      <span className="font-mono text-xs text-slate-400">Spent</span>
+                      <p className="font-mono text-xl font-extrabold text-white tabular-nums">
                         {formatCurrency(b.spentAmount)}
                       </p>
                     </div>
                     <div className="text-right">
-                      <span className="text-xs text-slate-400">Limit</span>
-                      <p className="text-base font-semibold text-slate-300">
+                      <span className="font-mono text-xs text-slate-400">Limit</span>
+                      <p className="font-mono text-base font-semibold text-slate-300 tabular-nums">
                         {formatCurrency(b.limitAmount)}
                       </p>
                     </div>
@@ -176,11 +176,11 @@ export default function BudgetsPage() {
                   <div className="mt-4">
                     <div className="flex items-center justify-between text-xs mb-1.5">
                       <span className="text-slate-400">Consumption</span>
-                      <span className="font-bold text-slate-200">
+                      <span className="font-mono font-bold text-slate-200">
                         {b.percentageUsed.toFixed(1)}%
                       </span>
                     </div>
-                    <div className="w-full h-2.5 rounded-full bg-slate-800 overflow-hidden">
+                    <div className="w-full h-2.5 rounded-full bg-[#132247] overflow-hidden">
                       <div
                         className={`h-full rounded-full transition-all duration-500 ${progressBarColor}`}
                         style={{ width: `${Math.min(100, b.percentageUsed)}%` }}
@@ -189,11 +189,11 @@ export default function BudgetsPage() {
                   </div>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-slate-800/60 flex items-center justify-between text-xs text-slate-400">
+                <div className="pt-4 mt-4 border-t border-[#17274f]/60 flex items-center justify-between text-xs text-slate-400">
                   <span>Remaining</span>
                   <span
-                    className={`font-semibold ${
-                      b.remainingAmount < 0 ? 'text-rose-400' : 'text-emerald-400'
+                    className={`font-mono font-semibold tabular-nums ${
+                      b.remainingAmount < 0 ? 'text-rose-400' : 'text-amber-300'
                     }`}
                   >
                     {formatCurrency(b.remainingAmount)}
