@@ -79,12 +79,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       <aside
         className={cn(
           'fixed top-0 bottom-0 left-0 z-50 flex flex-col w-64 border-r transition-transform duration-300 ease-in-out lg:static lg:translate-x-0',
-          'bg-[#091226]/95 border-[#152347] text-slate-200 backdrop-blur-xl',
+          'bg-[#101e42]/95 border-[#223872] text-slate-200 backdrop-blur-xl',
           isOpen ? 'translate-x-0' : '-translate-x-full'
         )}
       >
         {/* Brand Header */}
-        <div className="flex items-center gap-3 px-6 h-20 border-b border-[#152347]/80">
+        <div className="flex items-center gap-3 px-6 h-20 border-b border-[#223872]/80">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-400 via-amber-300 to-yellow-400 flex items-center justify-center shadow-lg shadow-amber-500/20 text-slate-950 font-black text-xl">
             <TrendingUp className="w-5 h-5 stroke-[2.5]" />
           </div>
@@ -132,7 +132,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                   'flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 group relative',
                   isActive
                     ? 'text-amber-300 bg-amber-400/10 font-semibold border-r-2 border-amber-400'
-                    : 'text-slate-400 hover:text-amber-100 hover:bg-[#0f1d3c]/60'
+                    : 'text-slate-400 hover:text-amber-100 hover:bg-[#1b2f63]/60'
                 )}
               >
                 <Icon
@@ -150,11 +150,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         </nav>
 
         {/* User Footer Profile */}
-        <div className="p-3.5 border-t border-[#152347] bg-[#0b162f]/60 flex items-center justify-between gap-2">
+        <div className="p-3.5 border-t border-[#223872] bg-[#0c1734]/70 flex items-center justify-between gap-2">
           <Link
             href="/settings"
             onClick={onClose}
-            className="flex items-center gap-2.5 min-w-0 flex-1 p-1 rounded-xl hover:bg-[#122246] transition-colors group"
+            className="flex items-center gap-2.5 min-w-0 flex-1 p-1 rounded-xl hover:bg-[#1b2f63] transition-colors group"
             title="Open Settings"
           >
             <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-400 to-yellow-300 flex items-center justify-center font-bold text-slate-950 text-xs shadow-md shrink-0">

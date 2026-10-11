@@ -37,7 +37,7 @@ export default function BudgetsPage() {
       <BudgetAlertBanner />
 
       {/* Overview Stat Banner */}
-      <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-5 sm:p-6 backdrop-blur-md">
+      <div className="rounded-2xl border border-[#223872] bg-[#15254f]/80 p-5 sm:p-6 backdrop-blur-md">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
           <div>
             <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-400">
@@ -62,7 +62,7 @@ export default function BudgetsPage() {
               <span className="font-semibold text-slate-300">Overall Budget Utilization</span>
               <span className="font-mono font-bold text-slate-100">{overallPercentage.toFixed(1)}%</span>
             </div>
-            <div className="w-full h-2.5 rounded-full bg-[#132247] overflow-hidden">
+            <div className="w-full h-2.5 rounded-full bg-[#0c1734] overflow-hidden">
               <div
                 className={`h-full rounded-full transition-all duration-500 ${
                   overallPercentage >= 90
@@ -81,7 +81,7 @@ export default function BudgetsPage() {
       {/* Category Budgets Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
         {budgets.length === 0 ? (
-          <div className="col-span-full py-16 text-center rounded-2xl border border-dashed border-[#17274f] bg-[#0c1630]/30">
+          <div className="col-span-full py-16 text-center rounded-2xl border border-dashed border-[#223872] bg-[#15254f]/30">
             <Target className="w-10 h-10 mx-auto text-slate-600 mb-3" />
             <h3 className="font-serif text-base font-semibold text-slate-300">No category budgets yet</h3>
             <p className="text-xs text-slate-500 max-w-sm mx-auto mt-1 mb-4">
@@ -129,10 +129,10 @@ export default function BudgetsPage() {
             return (
               <div
                 key={b.id}
-                className="relative rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-5 backdrop-blur-md shadow-lg flex flex-col justify-between hover:border-amber-400/30 transition-all"
+                className="relative rounded-2xl border border-[#223872] bg-[#15254f]/80 p-5 backdrop-blur-md shadow-lg flex flex-col justify-between hover:border-amber-400/40 transition-all"
               >
                 <div>
-                  <div className="flex items-center justify-between pb-3 border-b border-[#17274f]/80">
+                  <div className="flex items-center justify-between pb-3 border-b border-[#223872]/80">
                     <div>
                       <h3 className="font-serif text-base font-bold text-slate-100">{b.category}</h3>
                       <p className="text-[11px] text-slate-400 font-mono">{b.monthYear} Budget</p>
@@ -180,7 +180,7 @@ export default function BudgetsPage() {
                         {b.percentageUsed.toFixed(1)}%
                       </span>
                     </div>
-                    <div className="w-full h-2.5 rounded-full bg-[#132247] overflow-hidden">
+                    <div className="w-full h-2.5 rounded-full bg-[#0c1734] overflow-hidden">
                       <div
                         className={`h-full rounded-full transition-all duration-500 ${progressBarColor}`}
                         style={{ width: `${Math.min(100, b.percentageUsed)}%` }}
@@ -189,7 +189,7 @@ export default function BudgetsPage() {
                   </div>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-[#17274f]/60 flex items-center justify-between text-xs text-slate-400">
+                <div className="pt-4 mt-4 border-t border-[#223872]/60 flex items-center justify-between text-xs text-slate-400">
                   <span>Remaining</span>
                   <span
                     className={`font-mono font-semibold tabular-nums ${

@@ -44,7 +44,7 @@ export const CashFlowBarChart: React.FC<CashFlowBarChartProps> = ({
 
   if (data.length === 0) {
     return (
-      <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-6 backdrop-blur-md text-center">
+      <div className="rounded-2xl border border-[#223872] bg-[#15254f]/80 p-6 backdrop-blur-md text-center">
         <h3 className="font-serif text-sm font-bold text-white tracking-tight">{title}</h3>
         <p className="text-xs text-slate-400 mt-1 mb-8">{subtitle}</p>
         <div className="h-48 flex flex-col items-center justify-center text-slate-500 text-xs font-mono">
@@ -62,9 +62,9 @@ export const CashFlowBarChart: React.FC<CashFlowBarChartProps> = ({
   }));
 
   return (
-    <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-5 sm:p-6 backdrop-blur-md shadow-lg shadow-black/20 flex flex-col">
+    <div className="rounded-2xl border border-[#223872] bg-[#15254f]/80 p-5 sm:p-6 backdrop-blur-md shadow-lg shadow-black/20 flex flex-col">
       <div className="flex items-center gap-2 mb-1">
-        <div className="p-1.5 rounded-lg bg-[#132247] text-amber-400 border border-[#1b2f5f]">
+        <div className="p-1.5 rounded-lg bg-[#0c1734] text-amber-400 border border-[#223872]">
           <BarChart3 className="w-4 h-4" />
         </div>
         <h3 className="font-serif text-sm sm:text-base font-bold text-white tracking-tight">
@@ -81,7 +81,7 @@ export const CashFlowBarChart: React.FC<CashFlowBarChartProps> = ({
           >
             <CartesianGrid
               strokeDasharray="3 3"
-              stroke="#1b2b52"
+              stroke="#223872"
               opacity={0.5}
               vertical={false}
             />
@@ -90,7 +90,7 @@ export const CashFlowBarChart: React.FC<CashFlowBarChartProps> = ({
               stroke="#64748b"
               fontSize={11}
               tickLine={false}
-              axisLine={{ stroke: '#1b2b52' }}
+              axisLine={{ stroke: '#223872' }}
               interval={0}
               angle={-20}
               textAnchor="end"
@@ -107,7 +107,7 @@ export const CashFlowBarChart: React.FC<CashFlowBarChartProps> = ({
                 if (active && payload && payload.length) {
                   const item = payload[0].payload;
                   return (
-                    <div className="rounded-xl border border-[#1b2b52] bg-[#091226]/95 p-3 shadow-xl backdrop-blur-md">
+                    <div className="rounded-xl border border-[#223872] bg-[#0c1734]/95 p-3 shadow-xl backdrop-blur-md">
                       <p className="font-serif text-xs font-semibold text-slate-200 mb-1">
                         {item.fullName}
                       </p>

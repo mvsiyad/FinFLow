@@ -17,10 +17,10 @@ export const VaultsOverviewWidget: React.FC = () => {
   const activeVaults = goals.slice(0, 3);
 
   return (
-    <div className="rounded-3xl border border-[#17274f] bg-[#0c1630]/75 p-5 sm:p-6 backdrop-blur-md shadow-xl">
-      <div className="flex items-center justify-between pb-4 border-b border-[#17274f]/80">
+    <div className="rounded-3xl border border-[#223872] bg-[#15254f]/80 p-5 sm:p-6 backdrop-blur-md shadow-xl">
+      <div className="flex items-center justify-between pb-4 border-b border-[#223872]/80">
         <div className="flex items-center gap-2.5">
-          <div className="p-2 rounded-xl bg-[#132247] text-amber-400 border border-[#1b2f5f]">
+          <div className="p-2 rounded-xl bg-[#0c1734] text-amber-400 border border-[#223872]">
             <Target className="w-4 h-4" />
           </div>
           <div>
@@ -67,7 +67,7 @@ export const VaultsOverviewWidget: React.FC = () => {
             return (
               <div
                 key={g.id}
-                className="p-3.5 rounded-2xl bg-[#091226]/80 border border-[#17274f]/80 hover:border-amber-400/30 transition-all"
+                className="p-3.5 rounded-2xl bg-[#0c1734]/80 border border-[#223872]/80 hover:border-amber-400/30 transition-all"
               >
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2 truncate">
@@ -97,7 +97,7 @@ export const VaultsOverviewWidget: React.FC = () => {
                 </div>
 
                 {/* Progress Bar */}
-                <div className="w-full h-1.5 rounded-full bg-[#132247] overflow-hidden mb-2">
+                <div className="w-full h-1.5 rounded-full bg-[#0c1734] overflow-hidden mb-2">
                   <div
                     className="h-full rounded-full transition-all duration-500"
                     style={{

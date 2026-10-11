@@ -72,9 +72,9 @@ export const DepositModal: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-md rounded-3xl border border-[#1b2b52] bg-[#0b162f]/98 p-6 sm:p-7 text-slate-100 shadow-2xl shadow-black/60 backdrop-blur-xl">
+      <div className="relative w-full max-w-md rounded-3xl border border-[#223872] bg-[#15254f] p-6 sm:p-7 text-slate-100 shadow-2xl shadow-black/60 backdrop-blur-xl">
         {/* Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-[#17274f]/80">
+        <div className="flex items-center justify-between pb-4 border-b border-[#223872]/80">
           <div>
             <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400">
               Savings Vault Action
@@ -86,14 +86,14 @@ export const DepositModal: React.FC = () => {
 
           <button
             onClick={handleClose}
-            className="p-1.5 rounded-xl text-slate-400 hover:text-slate-100 hover:bg-[#122246] transition-colors"
+            className="p-1.5 rounded-xl text-slate-400 hover:text-slate-100 hover:bg-[#1b2f63] transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Current Balance Summary */}
-        <div className="my-4 p-4 rounded-2xl bg-[#091226]/80 border border-[#17274f]/80 flex items-center justify-between">
+        <div className="my-4 p-4 rounded-2xl bg-[#0c1734]/80 border border-[#223872]/80 flex items-center justify-between">
           <div>
             <span className="font-mono text-[11px] text-slate-400 font-semibold block">Current Balance</span>
             <span className="font-mono text-xl font-extrabold text-white tabular-nums">
@@ -109,7 +109,7 @@ export const DepositModal: React.FC = () => {
         </div>
 
         {/* Mode Selector Tabs */}
-        <div className="grid grid-cols-2 gap-2 p-1 rounded-xl bg-[#070e20] border border-[#17274f] mb-4">
+        <div className="grid grid-cols-2 gap-2 p-1 rounded-xl bg-[#0c1734] border border-[#223872] mb-4">
           <button
             type="button"
             onClick={() => {
@@ -164,7 +164,7 @@ export const DepositModal: React.FC = () => {
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
                 placeholder="100.00"
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-base font-mono font-bold text-white focus:outline-none focus:border-amber-400 transition-all"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0c1734] border border-[#223872] text-base font-mono font-bold text-white focus:outline-none focus:border-amber-400 transition-all"
               />
             </div>
           </div>
@@ -177,7 +177,7 @@ export const DepositModal: React.FC = () => {
                 key={amt}
                 type="button"
                 onClick={() => setAmount(amt.toString())}
-                className="px-2.5 py-1 rounded-lg bg-[#132247] hover:bg-[#1a2f60] text-xs font-mono font-semibold text-slate-200 transition-colors cursor-pointer"
+                className="px-2.5 py-1 rounded-lg bg-[#0c1734] hover:bg-[#1b2f63] border border-[#223872]/50 text-xs font-mono font-semibold text-slate-200 transition-colors cursor-pointer"
               >
                 +${amt}
               </button>
@@ -185,7 +185,7 @@ export const DepositModal: React.FC = () => {
           </div>
 
           {/* Live Preview Card */}
-          <div className="p-3.5 rounded-xl bg-[#091226]/80 border border-[#17274f]/60 text-xs">
+          <div className="p-3.5 rounded-xl bg-[#0c1734]/80 border border-[#223872]/60 text-xs">
             <div className="flex items-center justify-between text-slate-300 mb-1.5 font-mono">
               <span>New Vault Balance:</span>
               <strong className="text-white font-extrabold text-sm tabular-nums">
@@ -193,7 +193,7 @@ export const DepositModal: React.FC = () => {
               </strong>
             </div>
 
-            <div className="w-full h-1.5 rounded-full bg-[#132247] overflow-hidden">
+            <div className="w-full h-1.5 rounded-full bg-[#09142e] overflow-hidden">
               <div
                 className="h-full rounded-full bg-amber-400 transition-all duration-300"
                 style={{ width: `${projectedPercentage}%` }}
@@ -206,11 +206,11 @@ export const DepositModal: React.FC = () => {
           </div>
 
           {/* Submit Action */}
-          <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#17274f]/80">
+          <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#223872]/80">
             <button
               type="button"
               onClick={handleClose}
-              className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 transition-colors"
+              className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-100 hover:bg-[#1b2f63] transition-colors cursor-pointer"
             >
               Cancel
             </button>

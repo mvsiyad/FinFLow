@@ -54,7 +54,7 @@ export default function TransactionsPage() {
         <div className="flex items-center gap-2.5 self-start sm:self-auto">
           <button
             onClick={() => exportTransactionsToCSV(filteredTransactions, 'finflow-transactions')}
-            className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-200 bg-[#0b162f] hover:bg-[#122246] border border-[#17274f] hover:border-amber-400/30 transition-all shadow-md active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-200 bg-[#0c1734] hover:bg-[#1b2f63] border border-[#223872] hover:border-amber-400/30 transition-all shadow-md active:scale-95 cursor-pointer"
             title="Export filtered records to CSV"
           >
             <Download className="w-4 h-4 text-amber-400" />
@@ -72,7 +72,7 @@ export default function TransactionsPage() {
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-2xl border border-[#17274f] bg-[#0c1630]/75 backdrop-blur-md">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-2xl border border-[#223872] bg-[#15254f]/80 backdrop-blur-md">
         {/* Search */}
         <div className="relative">
           <Search className="w-4 h-4 absolute left-3 top-3 text-slate-400" />
@@ -81,7 +81,7 @@ export default function TransactionsPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by title or category..."
-            className="w-full pl-9 pr-3 py-2 rounded-xl bg-[#070e20] border border-[#17274f] text-xs sm:text-sm text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-amber-400"
+            className="w-full pl-9 pr-3 py-2 rounded-xl bg-[#0c1734] border border-[#223872] text-xs sm:text-sm text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-amber-400"
           />
         </div>
 
@@ -91,7 +91,7 @@ export default function TransactionsPage() {
           <select
             value={selectedType}
             onChange={(e) => setSelectedType(e.target.value as any)}
-            className="w-full pl-8 pr-3 py-2 rounded-xl bg-[#070e20] border border-[#17274f] text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-amber-400 cursor-pointer"
+            className="w-full pl-8 pr-3 py-2 rounded-xl bg-[#0c1734] border border-[#223872] text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-amber-400 cursor-pointer"
           >
             <option value="ALL">All Types</option>
             <option value="INCOME">Income Only</option>
@@ -105,7 +105,7 @@ export default function TransactionsPage() {
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="w-full pl-8 pr-3 py-2 rounded-xl bg-[#070e20] border border-[#17274f] text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-amber-400 cursor-pointer"
+            className="w-full pl-8 pr-3 py-2 rounded-xl bg-[#0c1734] border border-[#223872] text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-amber-400 cursor-pointer"
           >
             <option value="ALL">All Categories</option>
             {TRANSACTION_CATEGORIES.map((c) => (
@@ -118,10 +118,10 @@ export default function TransactionsPage() {
       </div>
 
       {/* Transactions Table */}
-      <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 overflow-hidden backdrop-blur-md shadow-xl">
+      <div className="rounded-2xl border border-[#223872] bg-[#15254f]/80 overflow-hidden backdrop-blur-md shadow-xl">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs sm:text-sm">
-            <thead className="border-b border-[#17274f] bg-[#070e20]/90 text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-400">
+            <thead className="border-b border-[#223872] bg-[#0c1734]/90 text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-400">
               <tr>
                 <th className="py-3.5 px-4 sm:px-6">Description</th>
                 <th className="py-3.5 px-4">Category</th>
@@ -130,7 +130,7 @@ export default function TransactionsPage() {
                 <th className="py-3.5 px-4 text-center">Action</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#17274f]/60 text-slate-200">
+            <tbody className="divide-y divide-[#223872]/60 text-slate-200">
               {filteredTransactions.length === 0 ? (
                 <tr>
                   <td colSpan={5} className="py-12 text-center text-slate-500 font-mono text-xs">
@@ -143,7 +143,7 @@ export default function TransactionsPage() {
                   return (
                     <tr
                       key={tx.id}
-                      className="hover:bg-[#122246]/40 transition-colors group"
+                      className="hover:bg-[#1b2f63]/40 transition-colors group"
                     >
                       <td className="py-3.5 px-4 sm:px-6">
                         <div className="flex items-center gap-3">
@@ -164,7 +164,7 @@ export default function TransactionsPage() {
                         </div>
                       </td>
                       <td className="py-3.5 px-4">
-                        <span className="inline-block px-2.5 py-1 rounded-md bg-[#132247] text-[11px] font-mono font-medium text-slate-300">
+                        <span className="inline-block px-2.5 py-1 rounded-md bg-[#0c1734] border border-[#223872]/40 text-[11px] font-mono font-medium text-slate-300">
                           {tx.category}
                         </span>
                       </td>

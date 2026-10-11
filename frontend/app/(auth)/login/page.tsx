@@ -59,7 +59,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="rounded-3xl border border-[#17274f] bg-[#0c1630]/90 p-6 sm:p-8 backdrop-blur-xl shadow-2xl shadow-black/50">
+    <div className="rounded-3xl border border-[#223872] bg-[#15254f]/90 p-6 sm:p-8 backdrop-blur-xl shadow-2xl shadow-black/50">
       {/* Header */}
       <div className="text-center mb-6">
         <h1 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">
@@ -91,7 +91,7 @@ export default function LoginPage() {
               {...register('email')}
               type="email"
               placeholder="alex@example.com"
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0c1734] border border-[#223872] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
             />
           </div>
           {errors.email && (
@@ -112,7 +112,7 @@ export default function LoginPage() {
               {...register('password')}
               type={showPassword ? 'text' : 'password'}
               placeholder="••••••••"
-              className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
+              className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-[#0c1734] border border-[#223872] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
             />
             <button
               type="button"
@@ -152,9 +152,9 @@ export default function LoginPage() {
       {/* Divider */}
       <div className="relative my-6 text-center">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-[#17274f]" />
+          <div className="w-full border-t border-[#223872]" />
         </div>
-        <span className="relative px-3 bg-[#0c1630] text-[11px] font-semibold uppercase tracking-wider text-slate-400 font-mono">
+        <span className="relative px-3 bg-[#15254f] text-[11px] font-semibold uppercase tracking-wider text-slate-400 font-mono">
           Or Quick Access
         </span>
       </div>
@@ -163,7 +163,7 @@ export default function LoginPage() {
       <button
         type="button"
         onClick={handleDemoAccess}
-        className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl font-semibold text-xs sm:text-sm text-slate-200 bg-[#070e20] hover:bg-[#111f42] border border-[#17274f] hover:border-amber-400/40 transition-all shadow-sm active:scale-[0.98] cursor-pointer"
+        className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl font-semibold text-xs sm:text-sm text-slate-200 bg-[#0c1734] hover:bg-[#1b2f63] border border-[#223872] hover:border-amber-400/40 transition-all shadow-sm active:scale-[0.98] cursor-pointer"
       >
         <Sparkles className="w-4 h-4 text-amber-400" />
         <span>One-Click Demo Mode (Explore Live App)</span>

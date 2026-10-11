@@ -19,7 +19,7 @@ export default function DashboardPage() {
   return (
     <div className="space-y-6">
       {/* Welcome Banner */}
-      <div className="relative overflow-hidden rounded-3xl border border-[#1a2d59] bg-gradient-to-r from-[#0b162f] via-[#091328] to-[#121c3b] p-6 sm:p-8 backdrop-blur-xl shadow-xl">
+      <div className="relative overflow-hidden rounded-3xl border border-[#243c7b] bg-gradient-to-r from-[#14244e] via-[#101d3f] to-[#162754] p-6 sm:p-8 backdrop-blur-xl shadow-xl">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-mono font-semibold mb-3">

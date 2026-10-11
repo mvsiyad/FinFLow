@@ -17,10 +17,10 @@ export const RecentTransactions: React.FC = () => {
   const recent = transactions.slice(0, 6);
 
   return (
-    <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-5 sm:p-6 backdrop-blur-md shadow-lg shadow-black/20">
-      <div className="flex items-center justify-between pb-4 border-b border-[#17274f]/80">
+    <div className="rounded-2xl border border-[#223872] bg-[#15254f]/80 p-5 sm:p-6 backdrop-blur-md shadow-lg shadow-black/20">
+      <div className="flex items-center justify-between pb-4 border-b border-[#223872]/80">
         <div className="flex items-center gap-2.5">
-          <div className="p-2 rounded-xl bg-[#132247] text-amber-400 border border-[#1b2f5f]">
+          <div className="p-2 rounded-xl bg-[#0c1734] text-amber-400 border border-[#223872]">
             <Receipt className="w-4 h-4" />
           </div>
           <div>
@@ -40,7 +40,7 @@ export const RecentTransactions: React.FC = () => {
         </Link>
       </div>
 
-      <div className="mt-4 divide-y divide-[#17274f]/60">
+      <div className="mt-4 divide-y divide-[#223872]/60">
         {recent.length === 0 ? (
           <div className="text-center py-10">
             <p className="text-sm text-slate-400">No transactions recorded yet.</p>
@@ -57,7 +57,7 @@ export const RecentTransactions: React.FC = () => {
             return (
               <div
                 key={tx.id}
-                className="flex items-center justify-between py-3.5 group hover:bg-[#122246]/30 px-2 rounded-xl transition-colors"
+                className="flex items-center justify-between py-3.5 group hover:bg-[#1b2f63]/40 px-2 rounded-xl transition-colors"
               >
                 <div className="flex items-center gap-3.5 min-w-0">
                   <div
@@ -78,7 +78,7 @@ export const RecentTransactions: React.FC = () => {
                       {tx.title}
                     </p>
                     <div className="flex items-center gap-2 mt-0.5 text-xs text-slate-400">
-                      <span className="inline-block px-2 py-0.5 rounded-md bg-[#132247] text-[10px] font-mono font-medium text-slate-300">
+                      <span className="inline-block px-2 py-0.5 rounded-md bg-[#0c1734] border border-[#223872]/50 text-[10px] font-mono font-medium text-slate-300">
                         {tx.category}
                       </span>
                       <span>•</span>

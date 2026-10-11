@@ -57,7 +57,7 @@ export default function AnalyticsPage() {
       {/* Top 4 KPI Metrics */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Total Inflow */}
-        <div className="p-4 sm:p-5 rounded-2xl border border-[#17274f] bg-[#0c1630]/75 backdrop-blur-md">
+        <div className="p-4 sm:p-5 rounded-2xl border border-[#223872] bg-[#15254f]/80 backdrop-blur-md">
           <div className="flex items-center justify-between">
             <span className="font-mono text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
               Total Inflow
@@ -75,7 +75,7 @@ export default function AnalyticsPage() {
         </div>
 
         {/* Total Outflow */}
-        <div className="p-4 sm:p-5 rounded-2xl border border-[#17274f] bg-[#0c1630]/75 backdrop-blur-md">
+        <div className="p-4 sm:p-5 rounded-2xl border border-[#223872] bg-[#15254f]/80 backdrop-blur-md">
           <div className="flex items-center justify-between">
             <span className="font-mono text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
               Total Outflow
@@ -93,7 +93,7 @@ export default function AnalyticsPage() {
         </div>
 
         {/* Savings Rate */}
-        <div className="p-4 sm:p-5 rounded-2xl border border-[#17274f] bg-[#0c1630]/75 backdrop-blur-md">
+        <div className="p-4 sm:p-5 rounded-2xl border border-[#223872] bg-[#15254f]/80 backdrop-blur-md">
           <div className="flex items-center justify-between">
             <span className="font-mono text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
               Savings Rate
@@ -111,12 +111,12 @@ export default function AnalyticsPage() {
         </div>
 
         {/* Top Expense Category */}
-        <div className="p-4 sm:p-5 rounded-2xl border border-[#17274f] bg-[#0c1630]/75 backdrop-blur-md">
+        <div className="p-4 sm:p-5 rounded-2xl border border-[#223872] bg-[#15254f]/80 backdrop-blur-md">
           <div className="flex items-center justify-between">
             <span className="font-mono text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
               Top Category
             </span>
-            <div className="p-2 rounded-xl bg-[#132247] text-amber-400 border border-[#1b2f5f]">
+            <div className="p-2 rounded-xl bg-[#0c1734] text-amber-400 border border-[#223872]">
               <ShieldCheck className="w-4 h-4" />
             </div>
           </div>

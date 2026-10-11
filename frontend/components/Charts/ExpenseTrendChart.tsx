@@ -99,7 +99,7 @@ export const ExpenseTrendChart: React.FC<ExpenseTrendChartProps> = ({
 
   if (chartData.length === 0) {
     return (
-      <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-6 backdrop-blur-md text-center">
+      <div className="rounded-2xl border border-[#223872] bg-[#15254f]/80 p-6 backdrop-blur-md text-center">
         <h3 className="font-serif text-sm font-bold text-white tracking-tight">{title}</h3>
         <p className="text-xs text-slate-400 mt-1 mb-8">{subtitle}</p>
         <div className="h-48 flex flex-col items-center justify-center text-slate-500 text-xs font-mono">
@@ -110,12 +110,12 @@ export const ExpenseTrendChart: React.FC<ExpenseTrendChartProps> = ({
   }
 
   return (
-    <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-5 sm:p-6 backdrop-blur-md shadow-lg shadow-black/20 flex flex-col">
+    <div className="rounded-2xl border border-[#223872] bg-[#15254f]/80 p-5 sm:p-6 backdrop-blur-md shadow-lg shadow-black/20 flex flex-col">
       {/* Header with Title and Mode Toggles */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
           <div className="flex items-center gap-2">
-            <div className="p-1.5 rounded-lg bg-[#132247] text-amber-400 border border-[#1b2f5f]">
+            <div className="p-1.5 rounded-lg bg-[#0c1734] text-amber-400 border border-[#223872]">
               <TrendingUp className="w-4 h-4" />
             </div>
             <h3 className="font-serif text-sm sm:text-base font-bold text-white tracking-tight">
@@ -126,12 +126,12 @@ export const ExpenseTrendChart: React.FC<ExpenseTrendChartProps> = ({
         </div>
 
         {/* Filter Pills */}
-        <div className="flex items-center gap-1.5 bg-[#091226] p-1 rounded-xl border border-[#17274f] self-start sm:self-auto text-xs">
+        <div className="flex items-center gap-1.5 bg-[#0c1734] p-1 rounded-xl border border-[#223872] self-start sm:self-auto text-xs">
           <button
             onClick={() => setFilterMode('BOTH')}
             className={`px-3 py-1 rounded-lg font-medium transition-all ${
               filterMode === 'BOTH'
-                ? 'bg-[#14234b] text-white shadow-sm font-semibold'
+                ? 'bg-[#1b2f63] text-white shadow-sm font-semibold'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -163,7 +163,7 @@ export const ExpenseTrendChart: React.FC<ExpenseTrendChartProps> = ({
       </div>
 
       {/* Mini Summary stats */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6 p-3 rounded-xl bg-[#091226]/80 border border-[#17274f]/60">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6 p-3 rounded-xl bg-[#0c1734]/80 border border-[#223872]/80">
         <div>
           <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-slate-400">
             Total Flow In
@@ -216,7 +216,7 @@ export const ExpenseTrendChart: React.FC<ExpenseTrendChartProps> = ({
 
             <CartesianGrid
               strokeDasharray="3 3"
-              stroke="#1b2b52"
+              stroke="#223872"
               opacity={0.5}
               vertical={false}
             />
@@ -226,7 +226,7 @@ export const ExpenseTrendChart: React.FC<ExpenseTrendChartProps> = ({
               stroke="#64748b"
               fontSize={11}
               tickLine={false}
-              axisLine={{ stroke: '#1b2b52' }}
+              axisLine={{ stroke: '#223872' }}
             />
             <YAxis
               stroke="#64748b"
@@ -241,8 +241,8 @@ export const ExpenseTrendChart: React.FC<ExpenseTrendChartProps> = ({
                 if (active && payload && payload.length) {
                   const data = payload[0].payload;
                   return (
-                    <div className="rounded-xl border border-[#1b2b52] bg-[#091226]/95 p-3.5 shadow-2xl backdrop-blur-md">
-                      <p className="font-mono text-xs font-semibold text-slate-300 mb-2 border-b border-[#17274f] pb-1">
+                    <div className="rounded-xl border border-[#223872] bg-[#0c1734]/95 p-3.5 shadow-2xl backdrop-blur-md">
+                      <p className="font-mono text-xs font-semibold text-slate-300 mb-2 border-b border-[#223872] pb-1">
                         {data.displayDate}
                       </p>
                       <div className="space-y-1.5 text-xs font-mono">
@@ -269,7 +269,7 @@ export const ExpenseTrendChart: React.FC<ExpenseTrendChartProps> = ({
                           </div>
                         )}
                         {filterMode === 'BOTH' && (
-                          <div className="flex items-center justify-between gap-4 pt-1.5 border-t border-[#17274f]">
+                          <div className="flex items-center justify-between gap-4 pt-1.5 border-t border-[#223872]">
                             <span className="text-slate-400 font-medium">Net:</span>
                             <span
                               className={`font-bold tabular-nums ${

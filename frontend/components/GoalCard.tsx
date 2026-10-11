@@ -40,10 +40,10 @@ export const GoalCard: React.FC<GoalCardProps> = ({ goal }) => {
 
   return (
     <div
-      className={`relative rounded-3xl border bg-[#0c1630]/75 p-5 sm:p-6 backdrop-blur-xl transition-all duration-300 shadow-xl flex flex-col justify-between hover:border-amber-400/30 group ${
+      className={`relative rounded-3xl border bg-[#15254f]/80 p-5 sm:p-6 backdrop-blur-xl transition-all duration-300 shadow-xl flex flex-col justify-between hover:border-amber-400/40 group ${
         isCompleted
-          ? 'border-amber-400/40 shadow-amber-950/20'
-          : 'border-[#17274f]'
+          ? 'border-amber-400/50 shadow-amber-950/20'
+          : 'border-[#223872]'
       }`}
     >
       {/* Top Header */}
@@ -81,7 +81,7 @@ export const GoalCard: React.FC<GoalCardProps> = ({ goal }) => {
         </h3>
 
         {/* Center: Radial Progress Ring + Balances */}
-        <div className="flex items-center justify-between gap-4 my-4 p-3.5 rounded-2xl bg-[#091226]/80 border border-[#17274f]/80">
+        <div className="flex items-center justify-between gap-4 my-4 p-3.5 rounded-2xl bg-[#0c1734]/80 border border-[#223872]/80">
           <div>
             <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-slate-400 block">
               Accumulated
@@ -102,7 +102,7 @@ export const GoalCard: React.FC<GoalCardProps> = ({ goal }) => {
                 cx="45"
                 cy="45"
                 r={radius}
-                className="stroke-[#132247]"
+                className="stroke-[#09142e]"
                 strokeWidth="7"
                 fill="none"
               />
@@ -151,7 +151,7 @@ export const GoalCard: React.FC<GoalCardProps> = ({ goal }) => {
           </div>
 
           {goal.deadline && (
-            <div className="flex items-center justify-between pt-1 border-t border-[#17274f]/60 font-mono text-[11px]">
+            <div className="flex items-center justify-between pt-1 border-t border-[#223872]/60 font-mono text-[11px]">
               <div className="flex items-center gap-1 text-slate-400">
                 <Calendar className="w-3 h-3 text-slate-500" />
                 <span>{formatDate(goal.deadline)}</span>
@@ -167,7 +167,7 @@ export const GoalCard: React.FC<GoalCardProps> = ({ goal }) => {
       </div>
 
       {/* Action Toolbar */}
-      <div className="flex items-center gap-2 pt-2 border-t border-[#17274f]/80">
+      <div className="flex items-center gap-2 pt-2 border-t border-[#223872]/80">
         <button
           onClick={handleOpenDeposit}
           className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl font-bold text-xs text-slate-950 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 hover:from-amber-300 hover:to-yellow-300 transition-all shadow-md shadow-amber-500/20 active:scale-95 cursor-pointer"
@@ -178,7 +178,7 @@ export const GoalCard: React.FC<GoalCardProps> = ({ goal }) => {
 
         <button
           onClick={handleOpenDeposit}
-          className="p-2 rounded-xl text-slate-400 hover:text-slate-100 bg-[#091226]/80 hover:bg-[#122246] border border-[#17274f] transition-colors cursor-pointer"
+          className="p-2 rounded-xl text-slate-400 hover:text-slate-100 bg-[#0c1734]/80 hover:bg-[#1b2f63] border border-[#223872] transition-colors cursor-pointer"
           title="Withdraw Funds"
         >
           <ArrowDownRight className="w-4 h-4 text-rose-400" />

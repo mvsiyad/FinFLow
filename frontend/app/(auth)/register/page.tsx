@@ -68,7 +68,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="rounded-3xl border border-[#17274f] bg-[#0c1630]/90 p-6 sm:p-8 backdrop-blur-xl shadow-2xl shadow-black/50">
+    <div className="rounded-3xl border border-[#223872] bg-[#15254f]/90 p-6 sm:p-8 backdrop-blur-xl shadow-2xl shadow-black/50">
       {/* Header */}
       <div className="text-center mb-6">
         <h1 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">
@@ -100,7 +100,7 @@ export default function RegisterPage() {
               {...register('name')}
               type="text"
               placeholder="Alex Rivera"
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0c1734] border border-[#223872] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
             />
           </div>
           {errors.name && (
@@ -119,7 +119,7 @@ export default function RegisterPage() {
               {...register('email')}
               type="email"
               placeholder="alex@example.com"
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0c1734] border border-[#223872] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
             />
           </div>
           {errors.email && (
@@ -138,7 +138,7 @@ export default function RegisterPage() {
               {...register('password')}
               type={showPassword ? 'text' : 'password'}
               placeholder="At least 6 characters"
-              className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
+              className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-[#0c1734] border border-[#223872] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
             />
             <button
               type="button"
@@ -166,7 +166,7 @@ export default function RegisterPage() {
               {...register('confirmPassword')}
               type={showPassword ? 'text' : 'password'}
               placeholder="Repeat password"
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0c1734] border border-[#223872] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
             />
           </div>
           {errors.confirmPassword && (

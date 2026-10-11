@@ -57,7 +57,7 @@ export const CategoryDoughnutChart: React.FC<CategoryDoughnutChartProps> = ({
 
   if (data.length === 0 || totalExpense === 0) {
     return (
-      <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-6 backdrop-blur-md text-center">
+      <div className="rounded-2xl border border-[#223872] bg-[#15254f]/80 p-6 backdrop-blur-md text-center">
         <h3 className="font-serif text-sm font-bold text-white tracking-tight">{title}</h3>
         <p className="text-xs text-slate-400 mt-1 mb-8">{subtitle}</p>
         <div className="h-48 flex flex-col items-center justify-center text-slate-500 text-xs font-mono">
@@ -77,7 +77,7 @@ export const CategoryDoughnutChart: React.FC<CategoryDoughnutChartProps> = ({
   const activeItem = activeIndex !== null ? chartData[activeIndex] : null;
 
   return (
-    <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-5 sm:p-6 backdrop-blur-md shadow-lg shadow-black/20 flex flex-col">
+    <div className="rounded-2xl border border-[#223872] bg-[#15254f]/80 p-5 sm:p-6 backdrop-blur-md shadow-lg shadow-black/20 flex flex-col">
       <div className="flex items-center justify-between mb-4">
         <div>
           <h3 className="font-serif text-sm sm:text-base font-bold text-white tracking-tight">{title}</h3>
@@ -101,7 +101,7 @@ export const CategoryDoughnutChart: React.FC<CategoryDoughnutChartProps> = ({
                 if (active && payload && payload.length) {
                   const current = payload[0].payload;
                   return (
-                    <div className="rounded-xl border border-[#1b2b52] bg-[#091226]/95 p-3 shadow-xl backdrop-blur-md">
+                    <div className="rounded-xl border border-[#223872] bg-[#0c1734]/95 p-3 shadow-xl backdrop-blur-md">
                       <div className="flex items-center gap-2 mb-1">
                         <span
                           className="w-2.5 h-2.5 rounded-full"
@@ -146,7 +146,7 @@ export const CategoryDoughnutChart: React.FC<CategoryDoughnutChartProps> = ({
                 <Cell
                   key={`cell-${index}`}
                   fill={entry.color}
-                  stroke="#091226"
+                  stroke="#0c1734"
                   strokeWidth={2}
                   className="transition-all duration-200 hover:opacity-85"
                 />
@@ -174,7 +174,7 @@ export const CategoryDoughnutChart: React.FC<CategoryDoughnutChartProps> = ({
       </div>
 
       {/* Dynamic legend grid */}
-      <div className="mt-4 pt-4 border-t border-[#17274f]/80 grid grid-cols-2 gap-2 max-h-36 overflow-y-auto pr-1">
+      <div className="mt-4 pt-4 border-t border-[#223872]/80 grid grid-cols-2 gap-2 max-h-36 overflow-y-auto pr-1">
         {chartData.map((item, index) => (
           <div
             key={item.name}
@@ -182,8 +182,8 @@ export const CategoryDoughnutChart: React.FC<CategoryDoughnutChartProps> = ({
             onMouseLeave={() => setActiveIndex(null)}
             className={`flex items-center justify-between p-1.5 rounded-lg text-xs transition-colors cursor-pointer ${
               activeIndex === index
-                ? 'bg-[#122246] ring-1 ring-[#1b2f5f]'
-                : 'hover:bg-[#122246]/40'
+                ? 'bg-[#1b2f63] ring-1 ring-[#223872]'
+                : 'hover:bg-[#1b2f63]/40'
             }`}
           >
             <div className="flex items-center gap-2 truncate">

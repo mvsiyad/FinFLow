@@ -22,7 +22,7 @@ export default function DashboardLayout({
   }, [initApp]);
 
   return (
-    <div className="flex min-h-screen bg-[#070e20] text-slate-100 relative">
+    <div className="flex min-h-screen bg-[#0e1b38] text-slate-100 relative">
       {/* Subtle ambient lighting */}
       <div className="fixed top-0 left-1/4 w-[600px] h-[350px] bg-amber-400/[0.03] blur-[120px] pointer-events-none rounded-full" />
       <div className="fixed bottom-0 right-10 w-[500px] h-[350px] bg-sky-500/[0.03] blur-[120px] pointer-events-none rounded-full" />

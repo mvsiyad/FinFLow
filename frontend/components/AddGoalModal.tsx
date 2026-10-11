@@ -84,9 +84,9 @@ export const AddGoalModal: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg rounded-3xl border border-[#1b2b52] bg-[#0b162f]/98 p-6 sm:p-8 text-slate-100 shadow-2xl shadow-black/60 backdrop-blur-xl">
+      <div className="relative w-full max-w-lg rounded-3xl border border-[#223872] bg-[#15254f] p-6 sm:p-8 text-slate-100 shadow-2xl shadow-black/60 backdrop-blur-xl">
         {/* Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-[#17274f]/80">
+        <div className="flex items-center justify-between pb-4 border-b border-[#223872]/80">
           <div className="flex items-center gap-2.5">
             <div
               className="p-2.5 rounded-xl text-slate-950 font-bold"
@@ -106,7 +106,7 @@ export const AddGoalModal: React.FC = () => {
 
           <button
             onClick={handleClose}
-            className="p-1.5 rounded-xl text-slate-400 hover:text-slate-100 hover:bg-[#122246] transition-colors"
+            className="p-1.5 rounded-xl text-slate-400 hover:text-slate-100 hover:bg-[#1b2f63] transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -123,7 +123,7 @@ export const AddGoalModal: React.FC = () => {
               {...register('title')}
               type="text"
               placeholder="e.g. Kyoto Trip 2027, Emergency Stash"
-              className="w-full px-3.5 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 transition-all"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0c1734] border border-[#223872] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 transition-all"
             />
             {errors.title && (
               <p className="text-xs text-rose-400 mt-1 font-medium">{errors.title.message}</p>
@@ -143,7 +143,7 @@ export const AddGoalModal: React.FC = () => {
                   type="number"
                   step="0.01"
                   placeholder="5000.00"
-                  className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm font-mono text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 transition-all"
+                  className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-[#0c1734] border border-[#223872] text-sm font-mono text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 transition-all"
                 />
               </div>
               {errors.targetAmount && (
@@ -164,7 +164,7 @@ export const AddGoalModal: React.FC = () => {
                   type="number"
                   step="0.01"
                   placeholder="0.00"
-                  className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm font-mono text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 transition-all"
+                  className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-[#0c1734] border border-[#223872] text-sm font-mono text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 transition-all"
                 />
               </div>
               {errors.currentAmount && (
@@ -185,10 +185,10 @@ export const AddGoalModal: React.FC = () => {
                 <Tag className="w-4 h-4 absolute left-3 top-3 text-slate-500 pointer-events-none" />
                 <select
                   {...register('category')}
-                  className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm text-slate-100 focus:outline-none focus:border-amber-400 cursor-pointer"
+                  className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-[#0c1734] border border-[#223872] text-sm text-slate-100 focus:outline-none focus:border-amber-400 cursor-pointer"
                 >
                   {CATEGORIES.map((cat) => (
-                    <option key={cat} value={cat} className="bg-[#0b162f] text-slate-200">
+                    <option key={cat} value={cat} className="bg-[#0c1734] text-slate-200">
                       {cat}
                     </option>
                   ))}
@@ -205,7 +205,7 @@ export const AddGoalModal: React.FC = () => {
                 <input
                   {...register('deadline')}
                   type="date"
-                  className="w-full pl-9 pr-3.5 py-2 rounded-xl bg-[#070e20] border border-[#17274f] text-sm font-mono text-slate-100 focus:outline-none focus:border-amber-400 cursor-pointer"
+                  className="w-full pl-9 pr-3.5 py-2 rounded-xl bg-[#0c1734] border border-[#223872] text-sm font-mono text-slate-100 focus:outline-none focus:border-amber-400 cursor-pointer"
                 />
               </div>
             </div>
@@ -224,7 +224,7 @@ export const AddGoalModal: React.FC = () => {
                   onClick={() => setValue('color', c.hex)}
                   className={`w-7 h-7 rounded-full transition-all cursor-pointer ${
                     selectedColor === c.hex
-                      ? 'ring-2 ring-white ring-offset-2 ring-offset-[#0b162f] scale-110'
+                      ? 'ring-2 ring-white ring-offset-2 ring-offset-[#15254f] scale-110'
                       : 'hover:scale-105 opacity-80 hover:opacity-100'
                   }`}
                   style={{ backgroundColor: c.hex }}
@@ -235,11 +235,11 @@ export const AddGoalModal: React.FC = () => {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex items-center justify-end gap-3 pt-4 border-t border-[#17274f]/80">
+          <div className="flex items-center justify-end gap-3 pt-4 border-t border-[#223872]/80">
             <button
               type="button"
               onClick={handleClose}
-              className="px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-[#122246] transition-all cursor-pointer"
+              className="px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-100 hover:bg-[#1b2f63] transition-colors cursor-pointer"
             >
               Cancel
             </button>

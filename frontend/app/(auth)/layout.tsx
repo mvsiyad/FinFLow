@@ -8,7 +8,7 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-[#070e20] text-slate-100 flex flex-col justify-between relative overflow-hidden selection:bg-amber-400/30 selection:text-amber-200">
+    <div className="min-h-screen bg-[#0e1b38] text-slate-100 flex flex-col justify-between relative overflow-hidden selection:bg-amber-400/30 selection:text-amber-200">
       {/* Ambient background glows */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-gradient-to-b from-amber-400/10 via-amber-500/5 to-transparent blur-3xl pointer-events-none rounded-full" />
       <div className="absolute bottom-0 -right-20 w-80 h-80 bg-amber-400/5 blur-3xl pointer-events-none rounded-full" />
@@ -43,7 +43,7 @@ export default function AuthLayout({
       </main>
 
       {/* Minimal Footer */}
-      <footer className="relative z-10 py-6 text-center text-xs text-slate-500 border-t border-[#17274f]/40 font-mono">
+      <footer className="relative z-10 py-6 text-center text-xs text-slate-500 border-t border-[#223872]/40 font-mono">
         <p>&copy; {new Date().getFullYear()} FinFlow. Bespoke Personal Wealth & Finance Intelligence.</p>
       </footer>
     </div>

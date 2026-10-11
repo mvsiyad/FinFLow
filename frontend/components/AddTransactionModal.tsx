@@ -68,9 +68,9 @@ export const AddTransactionModal: React.FC = () => {
       />
 
       {/* Modal Dialog Card */}
-      <div className="relative w-full max-w-lg overflow-hidden rounded-2xl border border-[#1b2b52] bg-[#0b162f]/98 p-6 sm:p-8 shadow-2xl shadow-black/60 backdrop-blur-xl z-10 animate-in fade-in zoom-in-95 duration-200">
+      <div className="relative w-full max-w-lg overflow-hidden rounded-2xl border border-[#223872] bg-[#15254f] p-6 sm:p-8 shadow-2xl shadow-black/60 backdrop-blur-xl z-10 animate-in fade-in zoom-in-95 duration-200">
         {/* Header */}
-        <div className="flex items-center justify-between pb-5 border-b border-[#17274f]">
+        <div className="flex items-center justify-between pb-5 border-b border-[#223872]">
           <div>
             <h3 className="font-serif text-xl font-bold text-white tracking-tight">Record Transaction</h3>
             <p className="text-xs text-slate-400 mt-0.5">
@@ -79,7 +79,7 @@ export const AddTransactionModal: React.FC = () => {
           </div>
           <button
             onClick={() => setAddTransactionOpen(false)}
-            className="rounded-lg p-1.5 text-slate-400 hover:text-slate-100 hover:bg-[#122246] transition-colors cursor-pointer"
+            className="rounded-lg p-1.5 text-slate-400 hover:text-slate-100 hover:bg-[#1b2f63] transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -88,7 +88,7 @@ export const AddTransactionModal: React.FC = () => {
         {/* Form Body */}
         <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-5">
           {/* Segmented Type Switcher */}
-          <div className="grid grid-cols-2 gap-2 p-1 bg-[#070e20] rounded-xl border border-[#17274f]">
+          <div className="grid grid-cols-2 gap-2 p-1 bg-[#0c1734] rounded-xl border border-[#223872]">
             <button
               type="button"
               onClick={() => setValue('type', 'EXPENSE')}
@@ -126,7 +126,7 @@ export const AddTransactionModal: React.FC = () => {
               type="text"
               placeholder="e.g. Salary, Supermarket, Electricity Bill"
               {...register('title')}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0c1734] border border-[#223872] text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
             />
             {errors.title && (
               <p className="text-xs text-rose-400 mt-1">{errors.title.message}</p>
@@ -148,7 +148,7 @@ export const AddTransactionModal: React.FC = () => {
                   step="0.01"
                   placeholder="0.00"
                   {...register('amount')}
-                  className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm font-mono text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
+                  className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-[#0c1734] border border-[#223872] text-sm font-mono text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
                 />
               </div>
               {errors.amount && (
@@ -165,7 +165,7 @@ export const AddTransactionModal: React.FC = () => {
                 <input
                   type="date"
                   {...register('date')}
-                  className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm font-mono text-slate-100 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
+                  className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-[#0c1734] border border-[#223872] text-sm font-mono text-slate-100 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
                 />
               </div>
               {errors.date && (
@@ -183,10 +183,10 @@ export const AddTransactionModal: React.FC = () => {
               </span>
               <select
                 {...register('category')}
-                className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-[#070e20] border border-[#17274f] text-sm text-slate-100 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all cursor-pointer"
+                className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-[#0c1734] border border-[#223872] text-sm text-slate-100 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all cursor-pointer"
               >
                 {TRANSACTION_CATEGORIES.map((cat) => (
-                  <option key={cat} value={cat} className="bg-[#0b162f] text-slate-200">
+                  <option key={cat} value={cat} className="bg-[#0c1734] text-slate-200">
                     {cat}
                   </option>
                 ))}
@@ -198,11 +198,11 @@ export const AddTransactionModal: React.FC = () => {
           </div>
 
           {/* Submit Actions */}
-          <div className="flex items-center justify-end gap-3 pt-4 border-t border-[#17274f]">
+          <div className="flex items-center justify-end gap-3 pt-4 border-t border-[#223872]">
             <button
               type="button"
               onClick={() => setAddTransactionOpen(false)}
-              className="px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-100 hover:bg-[#122246] transition-colors cursor-pointer"
+              className="px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-100 hover:bg-[#1b2f63] transition-colors cursor-pointer"
             >
               Cancel
             </button>

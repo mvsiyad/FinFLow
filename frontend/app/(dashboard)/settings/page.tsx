@@ -55,9 +55,9 @@ export default function SettingsPage() {
       </div>
 
       {/* User Profile Card */}
-      <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-6 backdrop-blur-md shadow-xl">
+      <div className="rounded-2xl border border-[#223872] bg-[#15254f]/80 p-6 backdrop-blur-md shadow-xl">
         <div className="flex items-center gap-2 mb-4">
-          <div className="p-2 rounded-xl bg-[#132247] text-amber-400 border border-[#1b2f5f]">
+          <div className="p-2 rounded-xl bg-[#0c1734] text-amber-400 border border-[#223872]">
             <UserIcon className="w-5 h-5" />
           </div>
           <div>
@@ -67,21 +67,21 @@ export default function SettingsPage() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-          <div className="p-4 rounded-xl bg-[#091226]/80 border border-[#17274f]">
+          <div className="p-4 rounded-xl bg-[#0c1734]/80 border border-[#223872]">
             <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-400 block mb-1">
               Account Name
             </span>
             <p className="text-sm font-bold text-slate-100">{user?.name || 'Investor'}</p>
           </div>
 
-          <div className="p-4 rounded-xl bg-[#091226]/80 border border-[#17274f]">
+          <div className="p-4 rounded-xl bg-[#0c1734]/80 border border-[#223872]">
             <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-400 block mb-1">
               Email Address
             </span>
             <p className="text-sm font-bold text-slate-100 font-mono">{user?.email || 'user@finflow.dev'}</p>
           </div>
 
-          <div className="p-4 rounded-xl bg-[#091226]/80 border border-[#17274f]">
+          <div className="p-4 rounded-xl bg-[#0c1734]/80 border border-[#223872]">
             <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-400 block mb-1">
               Account ID
             </span>
@@ -90,7 +90,7 @@ export default function SettingsPage() {
             </p>
           </div>
 
-          <div className="p-4 rounded-xl bg-[#091226]/80 border border-[#17274f]">
+          <div className="p-4 rounded-xl bg-[#0c1734]/80 border border-[#223872]">
             <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-400 block mb-1">
               Security Protocol
             </span>
@@ -103,10 +103,10 @@ export default function SettingsPage() {
       </div>
 
       {/* Regional & Currency Preferences */}
-      <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-6 backdrop-blur-md shadow-xl">
+      <div className="rounded-2xl border border-[#223872] bg-[#15254f]/80 p-6 backdrop-blur-md shadow-xl">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <div className="p-2 rounded-xl bg-[#132247] text-amber-400 border border-[#1b2f5f]">
+            <div className="p-2 rounded-xl bg-[#0c1734] text-amber-400 border border-[#223872]">
               <Globe className="w-5 h-5" />
             </div>
             <div>
@@ -138,7 +138,7 @@ export default function SettingsPage() {
               className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer ${
                 selectedCurrency === c.code
                   ? 'bg-amber-400/10 border-amber-400/40 text-amber-200 ring-1 ring-amber-400/30'
-                  : 'bg-[#091226]/80 border-[#17274f] text-slate-300 hover:bg-[#122246]/40'
+                  : 'bg-[#0c1734]/80 border-[#223872] text-slate-300 hover:bg-[#1b2f63]/40'
               }`}
             >
               <span className="text-xs font-bold block">{c.label}</span>
@@ -149,9 +149,9 @@ export default function SettingsPage() {
       </div>
 
       {/* Alert Policy & Intelligence */}
-      <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-6 backdrop-blur-md shadow-xl">
+      <div className="rounded-2xl border border-[#223872] bg-[#15254f]/80 p-6 backdrop-blur-md shadow-xl">
         <div className="flex items-center gap-2 mb-4">
-          <div className="p-2 rounded-xl bg-[#132247] text-amber-400 border border-[#1b2f5f]">
+          <div className="p-2 rounded-xl bg-[#0c1734] text-amber-400 border border-[#223872]">
             <Bell className="w-5 h-5" />
           </div>
           <div>
@@ -161,15 +161,15 @@ export default function SettingsPage() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs">
-          <div className="p-3.5 rounded-xl bg-[#091226]/80 border border-amber-400/20">
+          <div className="p-3.5 rounded-xl bg-[#0c1734]/80 border border-amber-400/20">
             <span className="font-mono font-bold text-amber-300 block mb-1">&lt; 70% Consumption</span>
             <p className="text-slate-400">Normal healthy status indicator. Spending is fully within allowance.</p>
           </div>
-          <div className="p-3.5 rounded-xl bg-[#091226]/80 border border-amber-500/20">
+          <div className="p-3.5 rounded-xl bg-[#0c1734]/80 border border-amber-500/20">
             <span className="font-mono font-bold text-amber-400 block mb-1">70% – 89.9% Consumption</span>
             <p className="text-slate-400">Amber warning status. Near capacity notification banner triggers.</p>
           </div>
-          <div className="p-3.5 rounded-xl bg-[#091226]/80 border border-rose-500/20">
+          <div className="p-3.5 rounded-xl bg-[#0c1734]/80 border border-rose-500/20">
             <span className="font-mono font-bold text-rose-400 block mb-1">&ge; 90% Consumption</span>
             <p className="text-slate-400">Critical alert status. High priority banner requiring budget review.</p>
           </div>
@@ -177,9 +177,9 @@ export default function SettingsPage() {
       </div>
 
       {/* Data Export & Backup */}
-      <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-6 backdrop-blur-md shadow-xl">
+      <div className="rounded-2xl border border-[#223872] bg-[#15254f]/80 p-6 backdrop-blur-md shadow-xl">
         <div className="flex items-center gap-2 mb-4">
-          <div className="p-2 rounded-xl bg-[#132247] text-amber-400 border border-[#1b2f5f]">
+          <div className="p-2 rounded-xl bg-[#0c1734] text-amber-400 border border-[#223872]">
             <FileSpreadsheet className="w-5 h-5" />
           </div>
           <div>
@@ -200,7 +200,7 @@ export default function SettingsPage() {
 
           <button
             onClick={() => exportTransactionsToCSV(transactions, 'finflow-backup')}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-xs text-slate-200 bg-[#0b162f] hover:bg-[#122246] border border-[#17274f] hover:border-amber-400/30 transition-all cursor-pointer shadow-sm active:scale-95 shrink-0 self-start sm:self-auto"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-xs text-slate-200 bg-[#0c1734] hover:bg-[#1b2f63] border border-[#223872] hover:border-amber-400/30 transition-all cursor-pointer shadow-sm active:scale-95 shrink-0 self-start sm:self-auto"
           >
             <Download className="w-4 h-4 text-amber-400" />
             <span>Download CSV Ledger</span>
@@ -236,7 +236,7 @@ export default function SettingsPage() {
                 loginWithDemo();
                 router.push('/');
               }}
-              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-300 bg-[#0b162f] hover:bg-[#122246] border border-[#17274f] transition-all cursor-pointer active:scale-95"
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-300 bg-[#0c1734] hover:bg-[#1b2f63] border border-[#223872] transition-all cursor-pointer active:scale-95"
             >
               <Sparkles className="w-3.5 h-3.5 text-amber-400" />
               <span>Reset Demo Data</span>

@@ -57,7 +57,7 @@ export default function GoalsPage() {
       </div>
 
       {/* Aggregate Vaults Overview Banner */}
-      <div className="rounded-3xl border border-[#17274f] bg-[#0c1630]/75 p-5 sm:p-7 backdrop-blur-xl shadow-xl">
+      <div className="rounded-3xl border border-[#223872] bg-[#15254f]/80 p-5 sm:p-7 backdrop-blur-xl shadow-xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
           <div>
             <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-slate-400">
@@ -86,7 +86,7 @@ export default function GoalsPage() {
               <span className="font-semibold text-slate-300">Portfolio Completion</span>
               <span className="font-mono font-extrabold text-white">{overallProgress.toFixed(1)}%</span>
             </div>
-            <div className="w-full h-2.5 rounded-full bg-[#132247] overflow-hidden">
+            <div className="w-full h-2.5 rounded-full bg-[#0c1734] overflow-hidden">
               <div
                 className="h-full rounded-full bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-300 transition-all duration-500"
                 style={{ width: `${Math.min(100, overallProgress)}%` }}
@@ -104,12 +104,12 @@ export default function GoalsPage() {
 
       {/* Filter Tabs */}
       <div className="flex items-center justify-between gap-3 pt-2">
-        <div className="flex items-center gap-2 p-1 rounded-xl bg-[#091226] border border-[#17274f] text-xs">
+        <div className="flex items-center gap-2 p-1 rounded-xl bg-[#0c1734] border border-[#223872] text-xs">
           <button
             onClick={() => setFilter('ALL')}
             className={`px-3.5 py-1.5 rounded-lg font-semibold transition-all cursor-pointer ${
               filter === 'ALL'
-                ? 'bg-[#14234b] text-white shadow-sm'
+                ? 'bg-[#1b2f63] text-white shadow-sm'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -141,7 +141,7 @@ export default function GoalsPage() {
       {/* Vaults Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {displayedGoals.length === 0 ? (
-          <div className="col-span-full py-16 text-center rounded-3xl border border-dashed border-[#17274f] bg-[#0c1630]/30">
+          <div className="col-span-full py-16 text-center rounded-3xl border border-dashed border-[#223872] bg-[#15254f]/30">
             <Target className="w-12 h-12 mx-auto text-slate-600 mb-3" />
             <h3 className="font-serif text-base font-bold text-slate-300">No savings vaults found</h3>
             <p className="text-xs text-slate-500 max-w-sm mx-auto mt-1 mb-4">

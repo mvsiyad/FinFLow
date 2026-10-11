@@ -10,10 +10,10 @@ export const BudgetProgressCards: React.FC = () => {
   const { budgets, setAddBudgetOpen } = useFinFlowStore();
 
   return (
-    <div className="rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-5 sm:p-6 backdrop-blur-md shadow-lg shadow-black/20">
-      <div className="flex items-center justify-between pb-4 border-b border-[#17274f]/80">
+    <div className="rounded-2xl border border-[#223872] bg-[#15254f]/80 p-5 sm:p-6 backdrop-blur-md shadow-lg shadow-black/20">
+      <div className="flex items-center justify-between pb-4 border-b border-[#223872]/80">
         <div className="flex items-center gap-2.5">
-          <div className="p-2 rounded-xl bg-[#132247] text-amber-400 border border-[#1b2f5f]">
+          <div className="p-2 rounded-xl bg-[#0c1734] text-amber-400 border border-[#223872]">
             <Target className="w-4 h-4" />
           </div>
           <div>
@@ -70,7 +70,7 @@ export const BudgetProgressCards: React.FC = () => {
               : 'bg-amber-400/10 text-amber-300 border-amber-400/20';
 
             return (
-              <div key={b.id} className="p-3.5 rounded-xl bg-[#091226]/80 border border-[#17274f]/80">
+              <div key={b.id} className="p-3.5 rounded-xl bg-[#0c1734]/80 border border-[#223872]/80">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-sm font-semibold text-slate-200">{b.category}</span>
                   <div className="flex items-center gap-2">
@@ -88,7 +88,7 @@ export const BudgetProgressCards: React.FC = () => {
                 </div>
 
                 {/* Progress Bar */}
-                <div className="w-full h-2 rounded-full bg-[#132247] overflow-hidden">
+                <div className="w-full h-2 rounded-full bg-[#0c1734] overflow-hidden">
                   <div
                     className={`h-full rounded-full transition-all duration-500 ${progressColor}`}
                     style={{ width: `${Math.min(100, b.percentageUsed)}%` }}

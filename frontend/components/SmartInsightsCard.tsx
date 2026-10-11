@@ -73,12 +73,12 @@ export const SmartInsightsCard: React.FC = () => {
   };
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-[#1a2d59] bg-gradient-to-b from-[#0b162f]/95 via-[#081126]/90 to-[#060b18]/95 p-5 sm:p-7 backdrop-blur-xl shadow-2xl shadow-black/40">
+    <div className="relative overflow-hidden rounded-3xl border border-[#243c7b] bg-gradient-to-b from-[#14244e]/95 via-[#101d3f]/90 to-[#0e1b38]/95 p-5 sm:p-7 backdrop-blur-xl shadow-2xl shadow-black/40">
       {/* Ambient background accent */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-b from-amber-400/10 via-amber-500/5 to-transparent blur-3xl pointer-events-none rounded-full" />
 
       {/* Header with Title and AI Badge */}
-      <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-[#17274f]/80">
+      <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-[#223872]/80">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-amber-400 via-amber-300 to-yellow-400 flex items-center justify-center text-slate-950 font-bold shadow-lg shadow-amber-500/20">
             <Zap className="w-5 h-5 fill-slate-950 stroke-none" />
@@ -103,7 +103,7 @@ export const SmartInsightsCard: React.FC = () => {
           <button
             onClick={handleRefresh}
             disabled={isRefreshing || isLoading}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-300 bg-[#091226]/80 hover:bg-[#122246] border border-[#17274f] transition-all cursor-pointer disabled:opacity-50 active:scale-95"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-300 bg-[#0c1734]/80 hover:bg-[#1b2f63] border border-[#223872] transition-all cursor-pointer disabled:opacity-50 active:scale-95"
             title="Recalculate AI Insights"
           >
             <RefreshCw className={`w-3.5 h-3.5 text-amber-400 ${isRefreshing ? 'animate-spin' : ''}`} />
@@ -115,7 +115,7 @@ export const SmartInsightsCard: React.FC = () => {
       {/* Top Intelligence Grid: Health Score & Burn Rate */}
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-5 my-6">
         {/* Financial Health Score (5 cols) */}
-        <div className="lg:col-span-5 p-5 rounded-2xl bg-[#091226]/80 border border-[#17274f] flex flex-col justify-between">
+        <div className="lg:col-span-5 p-5 rounded-2xl bg-[#0c1734]/85 border border-[#223872] flex flex-col justify-between">
           <div>
             <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
               Financial Health Score
@@ -140,8 +140,8 @@ export const SmartInsightsCard: React.FC = () => {
           </div>
 
           {/* Progress Indicator */}
-          <div className="mt-4 pt-3 border-t border-[#17274f]/60">
-            <div className="w-full h-2 rounded-full bg-[#132247] overflow-hidden">
+          <div className="mt-4 pt-3 border-t border-[#223872]/60">
+            <div className="w-full h-2 rounded-full bg-[#09142e] overflow-hidden">
               <div
                 className="h-full rounded-full bg-gradient-to-r from-amber-400 via-yellow-300 to-sky-300 transition-all duration-700"
                 style={{ width: `${Math.min(100, healthScore.score)}%` }}
@@ -158,7 +158,7 @@ export const SmartInsightsCard: React.FC = () => {
         {/* Burn Rate & Runway Metrics (7 cols) */}
         <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
           {/* Daily Burn Rate */}
-          <div className="p-4 rounded-2xl bg-[#091226]/80 border border-[#17274f] flex flex-col justify-between">
+          <div className="p-4 rounded-2xl bg-[#0c1734]/85 border border-[#223872] flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-1.5 text-slate-400 text-xs font-semibold mb-1">
                 <Flame className="w-3.5 h-3.5 text-amber-400" />
@@ -174,7 +174,7 @@ export const SmartInsightsCard: React.FC = () => {
           </div>
 
           {/* Projected Expense */}
-          <div className="p-4 rounded-2xl bg-[#091226]/80 border border-[#17274f] flex flex-col justify-between">
+          <div className="p-4 rounded-2xl bg-[#0c1734]/85 border border-[#223872] flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-1.5 text-slate-400 text-xs font-semibold mb-1">
                 <Calendar className="w-3.5 h-3.5 text-sky-400" />
@@ -190,7 +190,7 @@ export const SmartInsightsCard: React.FC = () => {
           </div>
 
           {/* Projected Month-End Surplus */}
-          <div className="p-4 rounded-2xl bg-[#091226]/80 border border-[#17274f] flex flex-col justify-between">
+          <div className="p-4 rounded-2xl bg-[#0c1734]/85 border border-[#223872] flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-1.5 text-slate-400 text-xs font-semibold mb-1">
                 <TrendingUp className="w-3.5 h-3.5 text-amber-400" />
@@ -220,7 +220,7 @@ export const SmartInsightsCard: React.FC = () => {
             className={`px-3 py-1.5 rounded-xl font-bold transition-all cursor-pointer ${
               selectedFilter === 'ALL'
                 ? 'bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 text-slate-950 shadow-md shadow-amber-500/20'
-                : 'text-slate-400 hover:text-slate-200 bg-[#091226] border border-[#17274f]'
+                : 'text-slate-400 hover:text-slate-200 bg-[#0c1734] border border-[#223872]'
             }`}
           >
             All Insights ({items.length})
@@ -230,7 +230,7 @@ export const SmartInsightsCard: React.FC = () => {
             className={`px-3 py-1.5 rounded-xl font-bold transition-all cursor-pointer ${
               selectedFilter === 'ALERT'
                 ? 'bg-rose-500 text-white shadow-md shadow-rose-500/20'
-                : 'text-slate-400 hover:text-slate-200 bg-[#091226] border border-[#17274f]'
+                : 'text-slate-400 hover:text-slate-200 bg-[#0c1734] border border-[#223872]'
             }`}
           >
             Alerts & Warnings
@@ -240,7 +240,7 @@ export const SmartInsightsCard: React.FC = () => {
             className={`px-3 py-1.5 rounded-xl font-bold transition-all cursor-pointer ${
               selectedFilter === 'TIP'
                 ? 'bg-amber-300 text-slate-950 shadow-md shadow-amber-500/20'
-                : 'text-slate-400 hover:text-slate-200 bg-[#091226] border border-[#17274f]'
+                : 'text-slate-400 hover:text-slate-200 bg-[#0c1734] border border-[#223872]'
             }`}
           >
             AI Opportunities
@@ -250,7 +250,7 @@ export const SmartInsightsCard: React.FC = () => {
             className={`px-3 py-1.5 rounded-xl font-bold transition-all cursor-pointer ${
               selectedFilter === 'POSITIVE'
                 ? 'bg-sky-400 text-slate-950 shadow-md shadow-sky-500/20'
-                : 'text-slate-400 hover:text-slate-200 bg-[#091226] border border-[#17274f]'
+                : 'text-slate-400 hover:text-slate-200 bg-[#0c1734] border border-[#223872]'
             }`}
           >
             Wins
@@ -268,7 +268,7 @@ export const SmartInsightsCard: React.FC = () => {
           filteredItems.map((insight) => (
             <div
               key={insight.id}
-              className="p-4 rounded-2xl bg-[#091226]/85 border border-[#17274f] hover:border-amber-400/30 transition-all flex flex-col justify-between"
+              className="p-4 rounded-2xl bg-[#0c1734]/85 border border-[#223872] hover:border-amber-400/30 transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-2">
@@ -294,7 +294,7 @@ export const SmartInsightsCard: React.FC = () => {
               </div>
 
               {insight.impact && (
-                <div className="mt-3 pt-2.5 border-t border-[#17274f]/60 flex items-center justify-between text-xs">
+                <div className="mt-3 pt-2.5 border-t border-[#223872]/60 flex items-center justify-between text-xs">
                   <span className="text-[11px] text-slate-400 font-medium">Estimated Impact:</span>
                   <span className="font-mono font-bold text-amber-300">{insight.impact}</span>
                 </div>

@@ -5,12 +5,12 @@
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
   --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
 
-  --color-navy-950: #060b18;
-  --color-navy-900: #0a1329;
-  --color-navy-850: #0f1c3a;
-  --color-navy-800: #14244b;
-  --color-navy-750: #1a2f60;
-  --color-navy-700: #223c78;
+  --color-navy-950: #0a142b;
+  --color-navy-900: #0e1b38;
+  --color-navy-850: #122144;
+  --color-navy-800: #15254f;
+  --color-navy-750: #1c3065;
+  --color-navy-700: #223872;
 
   --color-gold-300: #fef08a;
   --color-gold-400: #facc15;
@@ -19,7 +19,7 @@
 }
 
 :root {
-  --background: #070e20;
+  --background: #0e1b38;
   --foreground: #f8fafc;
 }
 
@@ -36,11 +36,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #060b18;
+  background: #0e1b38;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #14244b;
+  background: #223872;
   border-radius: 9999px;
 }
 

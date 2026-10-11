@@ -24,7 +24,7 @@ export const SummaryCards: React.FC = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
       {/* Net Balance Card */}
-      <div className="relative overflow-hidden rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-5 backdrop-blur-md shadow-lg shadow-black/20 hover:border-amber-400/30 transition-all duration-200">
+      <div className="relative overflow-hidden rounded-2xl border border-[#223872] bg-[#15254f]/80 p-5 backdrop-blur-md shadow-lg shadow-black/20 hover:border-amber-400/40 transition-all duration-200">
         <div className="flex items-center justify-between">
           <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-400">
             Net Cash Flow
@@ -54,7 +54,7 @@ export const SummaryCards: React.FC = () => {
       </div>
 
       {/* Total Income Card */}
-      <div className="relative overflow-hidden rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-5 backdrop-blur-md shadow-lg shadow-black/20 hover:border-amber-400/30 transition-all duration-200">
+      <div className="relative overflow-hidden rounded-2xl border border-[#223872] bg-[#15254f]/80 p-5 backdrop-blur-md shadow-lg shadow-black/20 hover:border-amber-400/40 transition-all duration-200">
         <div className="flex items-center justify-between">
           <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-400">
             Total Inflow
@@ -74,7 +74,7 @@ export const SummaryCards: React.FC = () => {
       </div>
 
       {/* Total Expense Card */}
-      <div className="relative overflow-hidden rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-5 backdrop-blur-md shadow-lg shadow-black/20 hover:border-rose-400/30 transition-all duration-200">
+      <div className="relative overflow-hidden rounded-2xl border border-[#223872] bg-[#15254f]/80 p-5 backdrop-blur-md shadow-lg shadow-black/20 hover:border-rose-400/40 transition-all duration-200">
         <div className="flex items-center justify-between">
           <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-400">
             Total Outflow
@@ -94,7 +94,7 @@ export const SummaryCards: React.FC = () => {
       </div>
 
       {/* Savings Rate Card */}
-      <div className="relative overflow-hidden rounded-2xl border border-[#17274f] bg-[#0c1630]/75 p-5 backdrop-blur-md shadow-lg shadow-black/20 hover:border-amber-400/30 transition-all duration-200">
+      <div className="relative overflow-hidden rounded-2xl border border-[#223872] bg-[#15254f]/80 p-5 backdrop-blur-md shadow-lg shadow-black/20 hover:border-amber-400/40 transition-all duration-200">
         <div className="flex items-center justify-between">
           <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-400">
             Savings Efficiency
@@ -108,7 +108,7 @@ export const SummaryCards: React.FC = () => {
             {metrics.savingsRate.toFixed(1)}%
           </div>
           <div className="flex items-center gap-2 mt-2">
-            <div className="flex-1 h-1.5 rounded-full bg-[#142349] overflow-hidden">
+            <div className="flex-1 h-1.5 rounded-full bg-[#0c1734] overflow-hidden">
               <div
                 className="h-full rounded-full bg-gradient-to-r from-amber-400 to-sky-400"
                 style={{ width: `${Math.min(100, Math.max(0, metrics.savingsRate))}%` }}
